@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/estilo.css">
+	<title>CarFel - @ViewBag.Title</title>
+</head>
+<body>
+    <header class="flex-container">
+		<div class="logo">
+			<img src="/imagem/logo.png" alt="Logo da empresa CarFel">	
+		</div>
+		<div class="flex-container menu-links-login">
+			<nav class="menu">
+				<a action="/Pagina/Home">Home</a>
+				<a href="/Pagina/Empresa">Sobre Nós</a>
+				<a href="/Pagina/Precos">Preçõs</a>
+				<a href="/Pagina/Contato">Contato</a>
+			</nav>
+			
+            <nav class="menu menu-login">
+				<a href="/Usuario/Login">Login</a>
+				<a href="/Usuario/Cadastrar">Cadastrar-se</a>
+			</nav>
+		</div>
+		</div>
+	</header>
+
+    @RenderBody()
+    
+    <main>
+        <section class="depoimentos">
+            <h2>Depoimentos</h2>
+
+            <div class="Usuarios-dep">
+                <div class="user-dep">
+                        <div class="container  flex-container">
+                            <div class="dep-img">
+                                <img src="/imagem/user.png" alt="icone de usuario">		
+                            </div>
+                            <div class="dep-container">
+                                <div class="dep-header flex-container">
+                                    <div class="dh-text">
+                                        <p><b>User</b></p>
+                                        <p>28/11/2018</p>
+                                    </div>
+                                    <div class="dh-like flex-container">
+                                        <img src="/imagem/like.png" alt="icone de like" style="width:2.5em; height: auto; margin-right: 0.5em;">
+                                        <p>100</p>
+                                    </div>
+                                </div>
+                                <div class="dep-main">
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dep-barra"></div>
+                    </div>
+                </div>
+                
+                <div class="dep-buttons flex-container">
+                    <button><a href="depoimentos.html">+ Exibir Mais</a></button>
+                    <!-- adimn 
+                    <button><a href="depoimentos.html">Avaliar</a></button> -->
+                </div>
+                
+                <div class="user-dep-escrever">
+                    <div class="container  flex-container">
+                        <div class="dep-img flex-container" style="justify-content: flex-end;">
+                            <img src="/imagem/user.png" alt="icone de usuario" style="height: 3em;">		
+                        </div>
+                    <div class="dep-container-escrever">
+                        <div class="dep-header flex-container">
+                            <div class="dh-text">
+                                <p><b>User Logado</b></p>
+                            </div>
+                        </div>
+                        <textarea placeholder="Deixe seu depoimento:" class="contato-item-form-input dep-textarea"></textarea>
+                    </div>
+                </div>	
+            </div>	
+	    </section>
+		<section class="chat flex-container">
+			<div class="chat-header">
+				Envie-nos uma mensagem
+			</div>
+		</section>
+    </main>
+
+    <footer class="flex-container">
+    	<ul>
+			<a href="/Pagina/Home">
+				<li class="footer-item">Home</li>
+				<li>CheckPoint</li>
+				<li>Termos de uso</li>
+				<li>Suporte</li>
+				<li>Chat</li>
+			</a>
+        </ul>
+        <ul>
+			<a href="/Pagina/Empresa">
+				<li class="footer-item">Institucional</li>
+				<li>Sobre Nós</li>
+				<li>História</li>
+				<li>Outros produtos</li>
+				<li>Colaboradores</li>
+			</a>
+        </ul>
+        <ul>
+			<a href="/Pagina/Contato">
+				<li class="footer-item"> Contato</li>
+				<li>(XX) XXXXX-XXXX</li>
+				<li>carfel.checkpoint@gmail.com</li>
+				<li>Alameda Barão de Limeira, 539 </li>
+				<li>Santa Cecilia</li>
+			</a>
+        </ul>
+        <ul>
+            <li class="footer-item">Siga-nós</li>
+            <img src="/imagem/redessociais.png" alt="Icones das redes sociais." width="170" height="170">
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/estilo.css">
+	<title>CarFel - @ViewBag.Title </title>
+</head>
+<body>
+    <header class="flex-container">
+		<div class="logo">
+			<img src="/imagem/logo.png" alt="Logo da empresa CarFel">	
+		</div>
+		<div class="flex-container menu-links-login">
+			<nav class="menu">
+				<a action="/Pagina/Home">Home</a>
+				<a href="/Pagina/Empresa">Sobre Nós</a>
+				<a href="/Pagina/Precos">Preçõs</a>
+				<a href="/Pagina/Contato">Contato</a>
+			</nav>
+			
+            <nav class="menu menu-login">
+				<a href="/Usuario/Login">Login</a>
+				<a href="/Usuario/Cadastrar">Cadastrar-se</a>
+			</nav>
+		</div>
+		</div>
+	</header>
+
+    @RenderBody()
+
+    <footer class="flex-container">
+    	<ul>
+			<a href="/Pagina/Home">
+				<li class="footer-item">Home</li>
+				<li>CheckPoint</li>
+				<li>Termos de uso</li>
+				<li>Suporte</li>
+				<li>Chat</li>
+			</a>
+        </ul>
+        <ul>
+			<a href="/Pagina/Empresa">
+				<li class="footer-item">Institucional</li>
+				<li>Sobre Nós</li>
+				<li>História</li>
+				<li>Outros produtos</li>
+				<li>Colaboradores</li>
+			</a>
+        </ul>
+        <ul>
+			<a href="/Pagina/Contato">
+				<li class="footer-item"> Contato</li>
+				<li>(XX) XXXXX-XXXX</li>
+				<li>carfel.checkpoint@gmail.com</li>
+				<li>Alameda Barão de Limeira, 539 </li>
+				<li>Santa Cecilia</li>
+			</a>
+        </ul>
+        <ul>
+            <li class="footer-item">Siga-nós</li>
+            <img src="/imagem/redessociais.png" alt="Icones das redes sociais." width="170" height="170">
+        </ul>
+    </footer>
+</body>
+</html>

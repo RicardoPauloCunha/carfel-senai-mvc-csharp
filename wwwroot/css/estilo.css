@@ -1,0 +1,1316 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+h1{
+	font-size: 2.2em;
+	font-weight: 1000;
+	margin-bottom: 1em;
+	color: #333;
+	text-transform: uppercase;
+}
+h2{
+	font-size: 2em;
+	font-weight: 800;
+	margin-bottom: 0.7em;
+	color: #333;
+}
+h3{font-size: 1.4em;
+	font-weight: 600;
+	margin-bottom: 0.5em;
+	color: #333;
+}
+p{
+	font-size: 1.1em;
+	font-weight: 400;
+}
+a{
+	text-decoration: none;
+	color: #e5e5e5;
+	margin: 0 0.5em 0 0.5em;
+}
+.flex-container{
+	display: flex;
+}
+.flex-container-p{
+	display: flex;
+}
+body{
+	width: 100%;
+	height: auto;
+	font-size: 16px;
+	color: #666666;
+}
+.espacamento {
+	margin-bottom: 7em;
+}
+/*menu*/
+header{
+	background-color: #4D4DFF;
+	width: 100%;
+	height: auto;
+	padding: 0.3em 4% 0.3em 4%;
+}
+.logo{
+	background-color: #e5e5e5;
+	width: auto;
+	height: auto;
+}
+.logo img{
+	width: 40px;
+	height: 45px;
+}
+.menu-links-login {
+	width: 100%;
+	margin: auto;
+	justify-content: space-between;
+}
+.menu{
+	width: auto;
+	height: 100%;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	margin: auto 1em auto;
+}
+.menu-login{
+	text-align: right;
+	justify-items: flex-end;
+}
+/*fim menu*/
+/*banner*/
+.banner{
+	width: 100%;
+	height: 398px;
+	min-width: 200px;
+	background-image: url("../imagem/banner.png");
+	background-size: cover;
+	padding: 0 4% 0 4%;
+}
+.escuro::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 398px;
+    top: 58px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.58);
+    z-index: 1;
+}
+.banner-item {
+    margin: auto 0 auto 3em;
+    z-index: 2;
+    color: #e5e5e5;
+    font-size: 1.5em;
+}
+.banner h2{
+	margin-bottom: 0;
+	color: #e5e5e5;
+}
+.banner-contato{
+	margin-top: 1.3em;
+	text-align: center;
+}
+/*fim banner*/
+/*main*/
+main{
+	width: 70%;
+	margin: 4em auto 4em auto;
+}
+.produto-item{
+	text-align: center;
+}
+.barra{
+	width: 100%;
+	height: 1em;
+	background-color: rgb(65, 162, 242, 0.3);
+	margin: 2em 0 2em 0;
+}
+.produto-img{
+	width: 100%;
+	text-align: center;
+}
+.produto img{
+	margin: 3em auto 0em auto;
+}
+.barra-fundo{
+	width: 100%;
+	height: 5em;
+	background-color: rgb(65, 162, 242, 0.3);
+	position: relative;
+	z-index: -1;
+	top: -8.5em;
+}
+.vantagens{
+	text-align: center;
+	margin-bottom: 7em
+}
+.vantagens-item{
+	justify-content: center;
+	margin: 1em 0 1em 0;
+}
+.vantagens img{
+	margin: 0 4em 0 4em;
+}
+.botao-contato{
+	text-align: center;
+}
+button{
+	border: none;
+	background-color: #4D4DFF;
+	color: #e5e5e5;
+	padding: 0.5em; 
+	margin: 1.5em auto 1.5em auto;
+	border-radius: 3em;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.3s;
+}
+.empresa-resumo{
+	text-align: center;
+	margin: 4em auto 1em auto;
+}
+.empresa-resumo p{
+	text-align: justify;
+}
+/*fim main*/
+/*footer*/
+footer li{
+	list-style-type: none;
+}
+footer{
+	background-color: #212166;
+	color: #e5e5e5;
+	padding: 1em 1em 1em 1em;
+}
+footer ul{
+	margin: auto;
+	text-decoration: none;
+}
+footer img{
+	width: 5em;
+	height: 5em;
+}
+.footer-item{
+	text-transform: uppercase;
+	margin-bottom: 1em;
+	font-size: 1.4em;
+}
+/*fim footer*/
+/*chat*/
+.chat{
+	justify-content: flex-end;
+}
+.chat-header{
+	width: auto;
+	height: auto;
+	padding: 0.7em 1.5em 0.5em 0.5em;
+	background-color: #4D4DFF;
+	color: #e5e5e5;
+	border-radius: 0 3em 0 0.2em;
+	font-size: 1em;
+	text-transform: uppercase;
+	/*posição*/
+	position: fixed;
+	bottom: 0px;
+	right: 25px;
+}
+/*fim chat*/
+/* depoimentos */
+.depoimentos {
+	margin: 7em auto 1em auto;
+	text-align: center;
+}
+.depoimentos-pag {
+	margin-top: 4em;
+}
+.depoimentos p {
+	text-align: justify;
+	margin: auto 0;
+}
+.depoimentos button {
+	margin-top: 0;
+}
+.dep-img {
+	width: 12%;
+	margin-right: 0.5em;
+}
+.dep-img img{
+	width: 3em; margin-left:0.5em
+}
+.dh-like {
+	width: 5em;
+	height: 2.5em;
+	margin: auto 0 auto 0;
+}
+.dep-header {
+	justify-content: space-between;
+}
+.dep-main {
+	margin-top: 1em;
+}
+.dep-barra {
+	width: 100%;
+	height: 0.2em;
+	background-color: rgb(65, 162, 242, 0.3);
+	margin: 0.5em 0 2em 0;
+}
+.dep-footer {
+	justify-content: flex-end;
+}
+.dep-footer button {
+	margin: 0.7em auto 0.5em auto;
+}
+.Usuarios-dep {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 30em;
+	padding: 0 2em;
+	margin-bottom: 0.5em;
+}
+.user-dep-escrever {
+	width: 70%;
+	margin: auto;
+}
+.dep-container-escrever {
+	width: 100%;
+}
+.dep-textarea {
+	resize: none;
+	min-height: 4em;
+	max-height: 8em;
+}
+
+.dep-buttons{
+	justify-content: space-around;
+	margin-top: 1em;
+}
+/* fim depoimentos */
+/* fim css pagina Home */
+/* barra titulo */
+.titulo{
+	width: 100%;
+	height: 6em;
+	background-image: linear-gradient(to right, #1e9cd7, #005b97, #0075be, #66aad9, #cce0f4, #cce0f5);
+	margin: 2em auto 0em auto;
+	padding: 1.6% 0 0 0;
+}
+.titulo-item{
+	width: 70%;
+	height: auto;
+	margin: auto;
+}
+.titulo h2{
+	color: #e5e5e5;
+	margin: auto 0 auto 0;
+}
+/* fim barra titulo */
+/* main */
+.empresaCF{
+	text-align: center;
+	margin: 0 0 7em 0;
+}
+.empresa-item img{
+	width: 100%;
+	height: auto;
+	margin-bottom: 3em;
+}
+.caracteristicas img{
+	margin: auto;
+}
+.barra-caract{
+	width: 100%;
+	height: 1em;
+	background-color: rgb(65, 162, 242, 0.3);
+	z-index: -1;
+	position: relative;
+	top: -4em;
+}
+.caracteristicas-item{
+	text-align: center;
+	margin: 2em auto 5em auto;
+}
+.caracteristicas-caixa{
+	width: 30%;
+	margin: auto;
+}
+/* timeline */
+.historico{
+	color: #333;
+	font-size: 0.93em;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	justify-content: space-between;
+}
+.timeline{
+	background-color: rgb(65, 162, 242, 0.2);
+	width: 100%;
+	padding: 1em;
+	margin: 0 0 2em 0;
+	border: solid 0.1em rgb(0, 0, 0, 0.5);
+}
+.timeline-item{
+	width: 50%;
+	max-height: 20em;
+	margin-right: 1em;
+	flex-wrap: wrap;
+}
+.timeline-item img{
+	max-width: 100%;
+	height: auto;
+	margin:  0 0 0.5em 0;
+}
+.timeline-item-texto{
+	width: 40%;
+}
+.timeline-ajust-margin{
+	margin: 0 0 0 1em;
+}
+.timeline-ajust-margin-top{
+	margin: 8em 0 0 0;
+}
+.timeline-ajust-margin-top-ajust{
+	margin: 5em 0 0 0;
+}
+.timeline-block{
+	flex-direction: column;
+	width: 45%;
+}
+.linha-vertical{
+	background-color: rgb(65, 162, 242);
+	z-index: 1;
+	width: 0.5em;
+	height: 55em;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.linha-bola{
+	width: 35px;
+	height: 35px;
+	border-radius: 5em;
+	background-color: rgb(65, 162, 242);
+	position: relative;
+	left: -14px;
+	border: solid 0.1em white;
+}
+.time-quadrado{
+	width: 1.5em;
+    height: 1.45em;
+    background-color: rgb(65, 162, 242);
+    border: solid 0.1em rgb(0, 0, 0, 0.5);
+    transform: rotatez(45deg);
+    position: relative;
+    left: 2.3em;
+    top: 3.5em;
+}
+.time-quadrado-left{
+	width: 1.5em;
+    height: 1.45em;
+    background-color: rgb(65, 162, 242);
+    border: solid 0.1em rgb(0, 0, 0, 0.5);
+    transform: rotatez(45deg);
+    position: relative;
+    left: -1.8em;
+    top: 3.5em;
+}
+/* fim timeline */
+/* fim main */
+/* fim css pagina empresa */
+/* main */
+.preços h1{
+	font-size: 2em;
+	text-transform: unset;
+	text-align: center;
+}
+.precos-planos{
+	width: 25%
+}
+.preços-plano-item{
+	width: 75%;
+	height: auto;
+	padding: 0.3em;
+	background-color: rgb(65, 162, 242, 0.3);
+	border-radius: 2em;
+	margin: auto;
+	text-align: center;
+	border: solid rgb(65, 162, 242, 0.5);
+}
+.preços-plano-item h2{
+	text-transform: uppercase;
+	margin-bottom: 0.3em;
+}
+.valor{
+	font-size: 2.5em;
+	color: #333;
+	font-weight: 800;
+	margin: 0.9em auto 0.9em auto;
+}
+.preços-vantagens-item{
+	width: 75%;
+	margin: 1.5em auto 0 auto;
+}
+.preços-dados-contato-item{
+	margin: 2em auto 2em auto;
+}
+.perguntas h2{
+	text-align: center;
+}
+/* fim main */
+/* fim css pagina preços */
+.contato-item h1{
+	font-size: 2em;
+	font-weight: 800;
+	margin-bottom: 0.7em;
+	color: #333;
+	text-transform: unset;
+}
+.contato-item-dados h2{
+	text-align: center;
+	margin-bottom: 1.2em;
+}
+.contato-item-dados h3{
+	margin: 1em 0 0.5em 0;
+}
+.contato-item-dados img{
+	width: 20%;
+	height: auto;
+}
+.contato{
+	width: 100%;
+	height: auto;
+}
+.contato-item{
+	width: 45%;
+	margin: 0 auto 0 auto;
+	padding:  0 1em 1em 1em;
+	text-align: center;
+}
+.contato-item-form{
+	display: flex;
+	flex-direction: column;
+}
+.contato-item-dados{
+	width: 45%;
+	margin: 0 auto 0 auto;
+	padding:  0 1em 1em 1em;
+}
+.contato-item-form-input{
+	background-color: rgba(80, 169, 241, 0.3);
+	width: 100%;
+	height: 2.5em;
+	margin: 1.5em 0 0 0;
+	padding: 0.2em 1em 0.2em 1em;
+	border-radius: 2em;
+	border: solid rgb(65, 162, 242, 0.5) 0.15em;
+}
+.contato-textarea{
+	height: 10em;
+	resize: none;
+	min-height: 10em;
+	max-height: 15em;
+}
+.mapa-img{
+	width: 80%;
+	height: auto;
+	margin: 5em auto 5em auto;
+	text-align: center;
+}
+.contato .botao-contato{
+	text-align: right;
+}
+/* fim css pagina contato */
+/* animaçoes/efeitos */
+	button:hover{
+		background-color: rgb(0, 0, 255);
+		box-shadow: 0.3em 0.3em 0.2em rgb(51, 51, 51, 0.5);
+	}
+	button:active{
+		background-color: rgb(98, 98, 255);
+		box-shadow: 0.1em 0.1em 0.1em rgb(51, 51, 51, 0.5); 
+		outline: none;
+	}
+	button:focus {
+		outline: none;
+	}
+	textarea{
+		outline: none;
+	}
+	.menu a:hover{
+		border-bottom: solid #e5e5e5 0.1em;
+	}
+	.banner a:hover{
+		text-decoration-color: #e5e5e5;
+		text-decoration-line: underline;
+	}
+	.timeline:hover{
+		background-color: rgb(65, 162, 242, 0.3);
+		border: solid 0.1em rgb(0, 0, 0, 0.7)
+	}
+	.preços-plano-item:hover{
+		box-shadow: 0.3em 0.3em 0.2em rgb(51, 51, 51, 0.5);
+		background-color: rgba(100, 190, 255, 0.3);
+	}
+	input:focus{
+		background-color: rgba(100, 190, 255, 0.2);
+		outline: none;
+	}
+	.dep-textarea:focus {
+		outline: none;
+	}
+	.Usuarios-dep:hover{
+		overflow-y: scroll;
+	}
+/* fim animaçoes/efeitos */
+/*BreakPoints*/
+@media screen and (max-width:1366px){
+	h1{
+		font-size: 2.1em;
+	}
+	h2{
+		font-size: 1.7em;
+	}
+	h3{
+		font-size: 1.5em;
+	}
+	p{
+		font-size: 1.1em;
+	}
+	a{
+		font-size: 0.85em;
+	}
+	.banner{
+		height: 354px;
+	}
+	.escuro::before{
+		height: 354px;
+	}
+	.titulo{
+		padding: 2% 0 0 0;
+	}
+	.time-quadrado{
+	    left: 2em;
+	}
+	.time-quadrado-left{
+	    left: -1.8em;
+	}
+	.linha-vertical{
+		height: 53em;
+	}
+	.mapa-img iframe{
+		width: 100%; 
+		height: 27em;
+	}
+}
+@media screen and (max-width:1120px){
+	.banner{
+		height: 289px;
+	}
+	.escuro::before{
+		height: 289px;
+	}
+	.banner h2{
+		font-size: 1.4em;
+	}
+	.banner p{
+		font-size: 1em;
+	}
+	/*timeline*/
+	.titulo{
+		height: 4.5em;
+		padding: 1.6% 0 0 0;
+	}
+	.valor{
+		font-size: 2.2em;
+		padding: 0.7 auto 0.7 auto;
+	}
+	.timeline p{
+		font-size: 1em;
+	}
+	.linha-vertical{
+		width: 0.5em;
+		height: 55em;
+	}
+	.time-quadrado{
+	    left: 1.8em;
+	}
+	.linha-vertical{
+		height: 53em;
+	}
+	/*fim timeline*/
+}
+@media screen and (max-width:920px){
+	h1{
+		font-size: 2em;
+	}
+	h2{
+		font-size: 1.6em;
+	}
+	h3{
+		font-size: 1.4em;
+	}
+	p{
+		font-size: 1em;
+	}
+	a{
+		font-size: 0.7em;
+	}
+	.espacamento{
+		margin-bottom: 6em;
+	}
+	.logo img{
+		width: 30px;
+		height: auto;
+	}
+	.menu{
+		font-size: 1em
+	}
+	.banner{
+		height: 236px;
+	}
+	.escuro::before{
+		top: 49px;
+		height: 236px;
+	}
+	.banner h2{
+		font-size: 1.25em;
+	}
+	.banner p{
+		font-size: 0.7em;
+	}
+	.barra-fundo{
+		height: 4em;
+		top: -8em;
+	}
+	.vantagens img {
+		width: 30%;
+		margin: auto 2em auto 2em;
+	}
+	.v-i-a img{
+		width: 25%;
+	}
+	.empresa-resumo{
+		margin: 3em auto 1em auto;
+	}
+	/*2º*/
+	.titulo{
+		height: 4em;
+	}
+	.caracteristicas img{
+		width: 5em;
+		height: 5em;
+	}
+	.barra-caract{
+		top: -3em;
+	}
+	.caracteristicas-caixa{
+		margin: 0 auto 0 auto;
+	}
+	/*timeline*/
+	.historico p{
+		font-size: 0.9em;
+	}
+	.time-quadrado{
+		width: 1.3em;
+		height: 1.23em;
+		left: 1.7em;
+	}
+	.time-quadrado-left{
+		width: 1.3em;
+		height: 1.23em;
+		left: -1.7em;
+	}
+	.linha-vertical{
+		height: 48.5em;
+	}
+	.timeline-ajust-margin-top {
+    	margin: 6em 0 0 0;
+	}
+	.timeline-ajust-margin-top-ajust {
+    	margin: 4em 0 0 0;
+	}
+	/*fim time line*/
+	.valor{
+		font-size: 2em;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	.perguntas h3{
+		font-size: 1.3em;
+	}
+	.perguntas h2 {
+   	 	margin: 2em 0 0 0;
+	}
+	.contato-item h1{
+		font-size: 1.6em;
+	}
+	.mapa-img iframe{ 
+		height: 24em;
+	}
+	.mapa-img{
+		margin: 4em auto 1em auto;
+	}
+	button{
+		padding: 0.5em;
+	}
+	.chat-header{
+		width: 17em;
+		font-size: 0.8em;
+	}
+}
+@media screen and (max-width:768px){
+	h1{
+		font-size: 1.6em;
+	}
+	h2{
+		font-size: 1.4em;
+	}
+	h3{
+		font-size: 1.1em;
+	}
+	p{
+		font-size: 1em;
+	}
+	a{
+		font-size: 0.7em;
+	}
+	.espacamento{
+		margin-bottom: 5em;
+	}
+	.logo img{
+		width: 30px;
+		height: auto;
+	}
+	.menu{
+		font-size: 1.2em
+	}
+	.banner{
+		height: 184px;
+	}
+	.escuro::before{
+		top: 49px;
+		height: 184px;
+	}
+	.banner h2{
+		font-size: 1em;
+	}
+	.banner p{
+		font-size: 0.5em;
+	}
+	main{
+		width: 80%;
+	}
+	.produto-img img{
+		width: 14em;
+		height: 10em;
+	}
+	.barra-fundo{
+		height: 3.5em;
+		top: -7em;
+	}
+	.vantagens-item img{
+		max-width: 28%;
+    	height: 6em;
+    	margin: auto 2em auto 2em;
+	}
+	.v-i-a img{
+		max-width: 24%;
+		height: 6.5em;
+	}
+	.empresa-resumo{
+		margin: 2em auto 1em auto;
+	}
+	.empresaCF{
+		margin: 0 0 4em 0;
+	}
+	/*2º*/
+	.titulo{
+		height: 3em;
+		padding: 1.3% 0 0 0;
+	}
+	.caracteristicas img{
+		width: 4em;
+		height: 4em;
+	}
+	.barra-caract{
+		top: -2.5em;
+	}
+	.caracteristicas-caixa{
+		width: 27%;
+		margin: 0 auto 0 auto;
+	}
+	/*timeline*/
+	.historico p{
+		font-size: 0.8em;
+	}
+	.linha-vertical {
+		width: 0.4em;
+		height: 4em;
+	}
+	.linha-vertical{
+		height: 45em;
+	}
+	.time-quadrado{
+		width: 1.1em;
+		height: 1.1em;
+		left: 1.6em;
+	}
+	.time-quadrado-left{
+		width: 1.1em;
+		height: 1.1em;
+		left: -1.6em;
+	}
+	.timeline-ajust-margin-top {
+    	margin: 6em 0 0 0;
+	}
+	.timeline-ajust-margin-top-ajust {
+    	margin: 4em 0 0 0;
+	}
+	/*fim time line*/
+	.preços h1{
+		font-size: 1.5em;
+	}
+	.perguntas h2 {
+		margin: 1.6em 0 0 0;
+	}
+	.perguntas h3{
+		font-size: 1.2em;
+	}
+	.valor{
+		font-size: 1.5em;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	.preços-plano-item p{
+		font-size: 0.8em;
+	}
+	.preços-plano-item button{
+		font-size: 0.8em;
+		padding: 0.5em;
+		margin: 0.8em;
+	}
+	.preços-vantagens-item p{
+		font-size: 0.85em;
+	}
+	.contato-item h1{
+		font-size: 1.4em;
+	}
+	.mapa-img iframe{ 
+		height: 20em;
+	}
+	.mapa-img{
+		margin: 3em auto 0em auto;
+	}
+	button{
+		padding: 0.4em;
+	}
+	.footer-item{
+		font-size: 1.3em;
+	}
+	footer img{
+		width: 3.5em;
+		height: 3.5em;
+		margin-top: -0.7em;
+	}
+	.chat-header{
+		width: 17em;
+		font-size: 0.7em;
+	}
+}
+@media screen and (max-width:650px){
+	.espacamento{
+		margin-bottom: 3.5em;
+	}
+	.flex-container-p{
+		flex-wrap: wrap;
+	}
+	.precos-plano{
+		width: 40%;
+		margin: 1em auto 1em auto;
+	}
+	.preços-plano-item{
+		width: 90%;
+		margin: auto;
+		margin-bottom: 1em;
+	}
+	.preços-vantagens-item{
+		width: 90%;
+		margin: auto;
+	}
+}
+@media screen and (max-width:580px){
+	.historico p{
+		font-size: 0.65em;
+	}
+	.time-quadrado{
+		top: 1em;
+		left: 1.4em;
+		width: 0.8em;
+		height: 0.8em;
+	}
+	.time-quadrado-left{
+		top: 1em;
+		left: -1.4em;
+		width: 0.8em;
+		height: 0.8em;
+	}
+	.linha-vertical{
+		height: 50em;;
+	}
+	footer {
+		flex-wrap: wrap;
+	}
+	a {
+		font-size: 0.65em;
+	}
+	footer ul {
+		width: 40%;
+		margin: auto;
+	}
+}
+@media screen and (max-width:520px){
+	h1{
+		font-size: 1.4em;
+	}
+	h2{
+		font-size: 1.2em;
+	}
+	h3{
+		font-size: 1em;
+	}
+	p{
+		font-size: 0.9em;
+	}
+	a{
+		font-size: 0.6em;
+	}
+	.espacamento{
+		margin-bottom: 4em;
+	}
+	button{
+		margin: 1em;
+	}
+	.logo img{
+		width: 25px;
+		height: auto;
+	}
+	.menu{
+		font-size: 1.1em
+	}
+	.banner{
+		height: 131px;
+	}
+	.escuro::before{
+		top: 44px;
+		height: 131px;
+	}
+	.banner h2{
+		font-size: 0.7em;
+	}
+	.banner-contato{
+		margin-top: 0.5em;
+	}
+	main{
+		width: 80%;
+		margin: 3em;
+	}
+	.produto-img img{
+		width: 10em;
+		height: auto;
+	}
+	.barra-fundo{
+		height: 2.5em;
+		top: -5em;
+	}
+	.barra{
+		height: 0.7em;
+	}
+	.vantagens-item{
+		flex-wrap: wrap;
+	}
+	.vantagens-item img{
+		max-width: 25%;
+    	height: 4.5em;
+    	margin: 1em;
+	}
+	.v-i-a img{
+		max-width: 22%;
+		height: 5em;
+		margin: 1em;
+	}
+	footer img {
+		width: 3em;
+		height: 3em;
+	}
+	.footer-item{
+		font-size: 1.2em;
+	}
+	.empresaCF{
+		margin: 0 0 2em 0;
+	}
+	.caracteristicas{
+		display: flex;
+	}
+	.flex-container-colum{
+		flex-direction: column;
+	}
+	.caracteristicas-item{
+		margin: 2em auto 2em auto;
+		text-align: left;
+		flex-direction: column;
+	}
+	.caracteristicas-img{
+		flex-direction: column;
+	}
+	.caracteristicas img{
+		margin: 3em auto 1em auto;
+	}
+	.barra-caract{
+		width: 2em;
+		height: 26em;
+		left: -2.5em;
+		top: 0.5em;
+	}
+	.caracteristicas-caixa{
+		width: 90%;
+		margin: 0 auto 2.5em auto;
+	}
+	/* timeline */
+	.timeline {
+		padding: 0.5em;
+	}
+	.historico p{
+		font-size: 0.5em;
+	}
+	.time-quadrado{
+		top: 1em;
+		left: 1.4em;
+		width: 1.1em;
+		height: 0.7em;
+	}
+	.time-quadrado-left{
+		top: 1em;
+		left: -1.4em;
+		width: 1.15em;
+		height: 0.7em;
+	}
+	.linha-vertical{
+		height: 40em;;
+	}
+	/* fim timeline */
+	.preços h1{
+		font-size: 1.2em;
+	}
+	.perguntas h2 {
+		margin: 1.6em 0 0 0;
+	}
+	.perguntas h3{
+		font-size: 1em;
+	}
+	.valor{
+		font-size: 1.5em;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	.flex-container-p{
+		display: flex;
+	}
+
+	.precos-plano{
+		width: 70%;
+		margin: 1em auto 0 auto;
+	}
+	.preços-plano-item button{
+		font-size: 0.6em;
+		padding: 0.5em;
+		margin: 0.8em;
+	}
+	.contato-item{
+		width: 90%;
+	}
+	.contato-item-dados{
+		width: 90%;
+		text-align: center;
+	}
+	.mapa-img iframe{ 
+		height: auto;
+	}
+	.mapa-img{
+		margin: 2em auto 0.5em auto;
+	}
+	.chat-header{
+		width: 17em;
+		font-size: 0.5em;
+	}
+	footer{
+		flex-wrap: wrap;
+	}
+	footer{
+		padding: 1em 1em 1em 1em;
+	}
+	footer ul{
+		width: 40%;
+		margin: auto;
+	}
+	.fi{
+		font-size: 0.8em;
+	}
+}
+@media screen and (max-width:420px){
+	h1{
+		font-size: 1.2em;
+	}
+	h2{
+		font-size: 1em;
+	}
+	h3{
+		font-size: 0.9em;
+	}
+	p{
+		font-size: 0.8em;
+	}
+	a{
+		font-size: 0.6em;
+	}
+	.espacamento{
+		margin-bottom: 2.5em;
+	}
+	/* menu */
+	.menu a{
+		margin: 0 2.6em 0 0;
+	}
+	.logo{
+		visibility: hidden;
+	}
+	/* fim menu */
+	button{
+		padding: 0.1em 0.1em 0.4em 0.1em
+	}
+	main{
+		width: 90%;
+		margin: 1.5em auto 1.5em auto;
+	}
+	.logo img{
+		width: 1em;
+		height: auto;
+	}
+	.banner{
+		height: 106px;
+	}
+	.banner h2{
+		font-size: 0.5em;
+	}
+	.banner p{
+		font-size: 0.4em;
+	}
+	.escuro::before{
+		height: 106px;
+		top: 33px;
+	}
+	.banner h1{
+		font-size: 0.5em;
+	}
+	.vantagens-item img{
+    	height: 4em;
+    	margin: 0.7em;
+	}
+	.v-i-a img{
+		height: 5.5em;
+		margin: 0.7em;
+	}
+	.historico p{
+		font-size: 0.5em;
+	}
+	.timeline{
+		padding: 0.5em;
+	}
+	.time-quadrado{
+		left: 1em;
+	}
+	.time-quadrado-left{
+		left: -1em;
+	}
+	.caracteristicas-caixa {
+    margin: 0.5em auto 3.0em auto;
+	}
+	.preços{
+		margin-top: 1em;
+	}
+	.preços h1 {
+    font-size: 1em;
+	}
+	.preços-vantagens {
+    width: 45%;
+	}
+	.mapa-img{
+		margin: 2em auto 0.5em auto;
+	}
+	.titulo{
+		padding: 3% 0 0 0;
+	}
+	.vantagens-item img{
+		display: none;
+	}
+	.mapa-img{
+		margin: 1em auto 0.5em auto;
+	}
+}
+@media screen and (max-width:320px){
+	.espacamento{
+		margin-bottom: 2em;
+	}
+	.banner{
+		height: 80px;
+		text-align: center;
+	}
+	.escuro::before{
+		height: 80px;
+	}
+	.banner-item{
+		text-align: center;
+		width: 100%;
+	}
+	.banner-contato{
+		margin-top: 0.1em;
+		font-size: 0.7em;
+	}
+	.menu a{
+		margin: 0 1.1em 0 0;
+	}
+	.barra-caract{
+		top: 1.5em;
+	}
+	.caracteristicas img {
+    	margin: 4em auto 1em auto;
+	}
+	.titulo{
+		margin: 1em auto 0 auto;
+		padding: 4% 0 0 0;
+	}
+	.empresa-item img{
+		margin-bottom: 1em;
+	}
+	.preços-dados-contato{
+		flex-direction: column;
+	}
+	.preços-dados-contato-item{
+		margin: 0 auto 1em auto;
+	}
+	.historico p{
+		font-size: 0.4em;
+	}
+	.time-quadrado{
+		height: 0.75em;
+	}
+	.time-quadrado-left{
+		height: 0.75em;
+	}
+	.linha-vertical{
+		height: 33em;;
+	}
+	footer ul{
+		width: 100%;
+	}
+}
+/* fim BreakPoints */

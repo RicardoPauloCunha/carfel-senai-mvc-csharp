@@ -1,0 +1,80 @@
+@{
+    ViewBag.Title = "Cadastrar-se";
+    Layout = "MasterPageCadastroLogin";
+}
+
+<div class="container-lr casleft"></div>
+
+<div class="main">
+    <div class="meio-circulo"></div>
+
+    <div class="container">
+
+        <div class="header-logo">
+            <img src="/imagem/logo.png" alt="logotipo CarFel" class="logo">
+        </div>
+        
+        <div class="header-titulo">
+            <h1>Cadastro</h1>
+        </div>
+
+        <div class="form-main">
+            <form method="post" action="/Usuario/Cadastrar" class="formulario flex-container">
+                <div class="form-tipo-user flex-container">
+                    <div class="tipo-user">
+                        <img src="/imagem/user.png" alt="icóne usuario" class="icon-tipe-user flex-container">
+                        <label>
+                            <input class="form-radio" type="radio" name="tipo" value="Usuario" checked>Usuário                               
+                    </div>
+                    <div class="tipo-user">
+                        <img src="/imagem/Admin.png" alt="icóne admin" class="icon-tipe-user flex-container">
+                            <input class="form-radio" type="radio" name="tipo" value="Admin">Admin
+                        </label>
+                    </div>
+                </div>
+
+                <label>
+                    <p>Nome Completo:</p>
+                    @ViewBag.MensengeValN
+                    <input type="text" name="nome" required class="form-input">
+                </label>
+        
+                <label>
+                    <p>Email:</p>
+                    @ViewBag.MensengeValE
+                    <input type="email" name="email" required class="form-input">
+                </label>
+        
+                <label>
+                    <p>Senha:</p>
+                    @ViewBag.MensengeValS
+                    <input type="password" name="senha" required class="form-input">
+                </label>
+
+                <label>
+                    <p>Digite a Senha Novamente:</p>
+                    @ViewBag.MensengeValSs
+                    <input type="password" name="senha2" required class="form-input">
+                </label>
+        
+                <input type="submit" value="Cadastrar-se" class="form-button">
+            </form>
+            
+            <div class="mensagem">
+                @ViewBag.valLogin
+            </div>
+
+            <div class="sair">
+                <a href="/Pagina/Home">Sair</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-lr cas">
+    <div class="lr-item">
+        <p>Já possui uma conta?</p>
+        <button class="form-button"><a href="/Usuario/Login">Entrar</a></button>
+    </div>
+</div>
