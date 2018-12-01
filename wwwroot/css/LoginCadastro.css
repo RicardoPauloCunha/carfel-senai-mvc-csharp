@@ -24,11 +24,12 @@ a {
     color: #e5e5e5;
     text-decoration: none;
 }
-
 .flex-container {
     display: flex;
 }
-
+.mgt{
+    margin-top: 4em;
+}
 /* box esquerdo e direito*/
 .container-lr {
     width: 27%;
@@ -129,7 +130,9 @@ a {
     text-align: center;
     margin-top: 0.5em;
 }
-
+.mensegeInvalid {
+    color: rgb(253, 100, 100);
+}
 /* img admin e user */
 .tipo-user{
     width: 50%;

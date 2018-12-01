@@ -62,11 +62,11 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
                 UsuarioRepositorio.Cadastrar(usuario);
                 
                 //retorma mensagem para usuario que login foi efetuado com sucesso
-                @ViewBag.valLogin = "Usuario cadastrado com sucesso";
+                @ViewBag.valCadastrar = "Usuario cadastrado com sucesso";
             }
             else
             {
-                @ViewBag.valLogin = "Falha ao cadastrar. Dados inválidos";
+                @ViewBag.valCadastrar = "Falha ao cadastrar. Dados inválidos";
             }
             
             return View();
@@ -81,15 +81,39 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
         [HttpPost]
         public IActionResult Login(IFormCollection dados)
         {
-            
-            string email = dados["email"];
-            string senha = dados["senha"];
-            UsuarioModel usuario = UsuarioRepositorio.Login(email, senha);           
-            if (usuario != null)
+            ValidacaoUtil val = new ValidacaoUtil();
+            bool valE = val.ValEmail(dados["email"]);
+            bool valS = val.ValSenha(dados["senha"]);
+
+            if (!valE)
             {
-                HttpContext.Session.SetString("idUsuario", usuario.Id.ToString());
-                return RedirectToAction("Home", "Pagina");
+                ViewBag.MensengeValE = "Email deve conter @ e .";
             }
+            if (!valS)
+            {
+                ViewBag.MensengeValS = "Senha deve conter pelo menos 6 caracteres";
+            }
+
+            if (valE && valS)
+            {
+                string email = dados["email"];
+                string senha = dados["senha"];
+                UsuarioModel usuario = UsuarioRepositorio.Login(email, senha);           
+                if (usuario != null)
+                {
+                    HttpContext.Session.SetString("idUsuario", usuario.Id.ToString());
+                    return RedirectToAction("Home", "Pagina");
+                }
+                else
+                {
+                    ViewBag.MensValLogin = "Email ou Senha Incorretos";
+                }
+            }
+            else
+            {
+                @ViewBag.MensValLogin = "Falha ao Logar. Dados Inválidos";
+            }
+            
             return View();
         }
 
