@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.AspNetCore.Http;
 using Projeto_CarFel_CheckPoint_Web.Interfaces;
 using Projeto_CarFel_CheckPoint_Web.Models;
 
@@ -81,5 +82,23 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
             }
             return null;
         }
+
+        // private readonly IHttpContextAccessor _httpContextAccessor;
+        // private ISession _session => _httpContextAccessor.HttpContext.Session;
+
+        // public SomeOtherClass(IHttpContextAccessor httpContextAccessor)
+        // {
+        //     _httpContextAccessor = httpContextAccessor;
+        // }
+
+        // public void testSet()
+        // {
+        //     _session.SetString("Test", "irineu");
+        // }
+
+        // public void testGet()
+        // {
+        //     var message = _session.GetString("Test");
+        // }
     }
 }

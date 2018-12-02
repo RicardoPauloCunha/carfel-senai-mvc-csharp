@@ -1,11 +1,7 @@
-@using Projeto_CarFel_CheckPoint_Web.Models;
-
 @{
     ViewBag.Title = "Check Point";
-    
-    UsuarioModel usuario = ViewBag.UsuarioLog;
 
-    if (usuario == null)
+    if (this.ViewBag.UserLog == null)
     {
         Layout = "MasterPageDeslogado";
     }
@@ -30,6 +26,7 @@
     <section class="produto espacamento">
     	<div class="produto-item">
             <h1>CheckPoint</h1>
+            @ViewBag.UserLog
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
         </div>
         <div class="produto-img">

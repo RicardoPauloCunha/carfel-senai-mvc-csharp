@@ -43,7 +43,7 @@ namespace AspNetCore
             WriteLiteral("<!DOCTYPE html>\n<html lang=\"pt-br\">\n");
             EndContext();
             BeginContext(36, 231, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd1407caa9f4d7faffea55469915cd3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b0328bfca94942fca5f9a5b6f119ff22", async() => {
                 BeginContext(42, 195, true);
                 WriteLiteral("\n    <meta charset=\"UTF-8\">\n    <link href=\"https://fonts.googleapis.com/css?family=Montserrat\" rel=\"stylesheet\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/estilo.css\">\n\t<title>CarFel - ");
                 EndContext();
@@ -73,7 +73,7 @@ namespace AspNetCore
             WriteLiteral("\n");
             EndContext();
             BeginContext(268, 4400, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bd496d6a3cf414b8aff9daab1c7ce68", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fcd5832965424749b4385c0d82284ee9", async() => {
                 BeginContext(274, 552, true);
                 WriteLiteral(@"
     <header class=""flex-container"">

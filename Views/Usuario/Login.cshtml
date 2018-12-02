@@ -20,13 +20,13 @@
                 <form method="post" action="/Usuario/Login" class="formulario flex-container">
                     <label>
                         <p>Email:</p>
-                        <p class="mensegeInvalid">@ViewBag.MensengeValE</p>
+                        <p class="mensegeInvalid">@TempData["MensengeValE"]</p>
                         <input type="email" name="email" required class="form-input">
                     </label>
                             
                     <label>
                         <p>Senha:</p>
-                        <p class="mensegeInvalid">@ViewBag.MensengeValS</p>
+                        <p class="mensegeInvalid">@TempData["MensengeValS"]</p>
                         <input type="password" name="senha" required class="form-input">
                     </label>
                         
@@ -34,7 +34,7 @@
                 </form>
 
                 <div class="mensagem">
-                    <p class="mensegeInvalid">@ViewBag.MensValLogin</p>                
+                    <p class="mensegeInvalid">@TempData["MensValLogin"]</p>                
                 </div>
 
                 <div class="sair">

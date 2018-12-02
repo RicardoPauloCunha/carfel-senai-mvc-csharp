@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Projeto_CarFel_CheckPoint.Controllers
@@ -6,6 +7,7 @@ namespace Projeto_CarFel_CheckPoint.Controllers
     {
         [HttpGet]
         public IActionResult Home(){
+            ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
             return View();
         }
 

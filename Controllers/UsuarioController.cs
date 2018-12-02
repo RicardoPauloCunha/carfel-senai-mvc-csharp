@@ -36,19 +36,19 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             //retorna uma mensagem caso algo esta errado
             if (!valN)
             {
-                ViewBag.MensengeValN = "Insira o nome completo";
+                TempData["MensengeValN"] = "Insira o nome completo";
             }
             if (!valE)
             {
-                ViewBag.MensengeValE = "Email deve conter @ e .";
+                TempData["MensengeValE"] = "Email deve conter @ e .";
             }
             if (!valS)
             {
-                ViewBag.MensengeValS = "Senha deve conter pelo menos 6 caracteres";
+                TempData["MensengeValS"] = "Senha deve conter pelo menos 6 caracteres";
             }
             if (!valSs)
             {
-                ViewBag.MensengeValSs = "Senha incorreta";
+                TempData["MensengeValSs"] = "Senha incorreta";
             }
 
             //caso esteja certo cadastra usuario
@@ -62,11 +62,11 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
                 UsuarioRepositorio.Cadastrar(usuario);
                 
                 //retorma mensagem para usuario que login foi efetuado com sucesso
-                @ViewBag.valCadastrar = "Usuario cadastrado com sucesso";
+                TempData["valCadastrar"] = "Usuario cadastrado com sucesso";
             }
             else
             {
-                @ViewBag.valCadastrar = "Falha ao cadastrar. Dados inválidos";
+                TempData["IvalCadastrar"] = "Falha ao cadastrar. Dados inválidos";
             }
             
             return View();
@@ -87,11 +87,11 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
 
             if (!valE)
             {
-                ViewBag.MensengeValE = "Email deve conter @ e .";
+                TempData["MensengeValE"] = "Email deve conter @ e .";
             }
             if (!valS)
             {
-                ViewBag.MensengeValS = "Senha deve conter pelo menos 6 caracteres";
+                TempData["MensengeValS"] = "Senha deve conter pelo menos 6 caracteres";
             }
 
             if (valE && valS)
@@ -101,17 +101,18 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
                 UsuarioModel usuario = UsuarioRepositorio.Login(email, senha);           
                 if (usuario != null)
                 {
-                    HttpContext.Session.SetString("idUsuario", usuario.Id.ToString());
+                    // HttpContext.Session.SetString("idUsuario", usuario.Id.ToString());
+                    HttpContext.Session.SetString("UsuarioLogId", usuario.Id.ToString());
                     return RedirectToAction("Home", "Pagina");
                 }
                 else
                 {
-                    ViewBag.MensValLogin = "Email ou Senha Incorretos";
+                    TempData["MensValLogin"] = "Email ou Senha Incorretos";
                 }
             }
             else
             {
-                @ViewBag.MensValLogin = "Falha ao Logar. Dados Inválidos";
+                TempData["MensValLogin"] = "Falha ao Logar. Dados Inválidos";
             }
             
             return View();
