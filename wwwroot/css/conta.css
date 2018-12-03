@@ -38,23 +38,35 @@ a {
     background-color: #e1e1e5;
     margin: auto 0;
     text-align: center;
+    box-shadow: inset 1px 0px 5px;
 }
 .left {
     width: 5%;
+    box-shadow: inset -1px 0px 5px;
 }
 .cas {
     width: 20%;
     /* width: 24%; */
-    height: 30em;
+    height: 24em;
     padding: 6.5em 0 0 0;
 }
 .casleft {
     width: 5%;
-    height: 30em;
+    height: 24em; 
+    box-shadow: inset -1px 0px 5px;
 }
 .lr-item {
     width: 80%;
-    margin: 6em auto;
+    margin: 3.5em auto;
+}
+.main-lr-item {
+    width: 100%;
+    text-align: center;
+    margin: 1em;
+    display: none;
+}
+.main-lr-item a {
+    color: #4D4DFF;
 }
 
 /* fim box esquerdo e direito */
@@ -81,6 +93,7 @@ a {
     background-color: white;
     width: 100%;
     height: 100%;
+    box-shadow: 1px 4px 5px;
 }
 .header-logo {
     width: 3.8em;
@@ -197,6 +210,26 @@ button:focus {
     }
     .box {
         width: 90%;
+        margin-top: 5em;
+    }
+}
+@media screen and (max-width:680px) {
+    .container-lr  {
+        display: none;
+    }
+    .cas {
+        display: none;
+    }
+    .main {
+        width: 85%;
+        height: 100%;
+        margin: auto;
+    }
+    .box {
+        margin-top: 4em;
+    }
+    .main-lr-item {
+        display: inline-block;
     }
 }
 @media screen and (max-width:582px) {
@@ -205,6 +238,9 @@ button:focus {
     }
     .sair a {
         font-size: 0.8em;
+    }
+    .box {
+        margin-top: 3em;
     }
 }
 @media screen and (max-width:520px){
@@ -216,12 +252,14 @@ button:focus {
     }
     .box {
         margin: 3.5em auto;
+        margin-top: 2em;
     }
 }
 @media screen and (max-width:320px) {
     .box {
         width: 95%;
         margin: 1em auto;
+        margin-top: 1em;
     }
     h1 {
         font-size: 1.2em;

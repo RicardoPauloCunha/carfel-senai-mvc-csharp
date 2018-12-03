@@ -25,5 +25,12 @@ namespace Projeto_CarFel_CheckPoint_Web.Interfaces
         /// <param name="senha">Senha do usuario</param>
         /// <returns>Retona o usuario correspondente a esses dados</returns>
         UsuarioModel Login(string email, string senha);
+
+        /// <summary>
+        /// Busca na lista de usuarios o usuario correspondente a esse id
+        /// </summary>
+        /// <param name="id">Id do usuario desejado</param>
+        /// <returns>Retorna um usuario model</returns>
+        UsuarioModel BuscarPorId(int id);
     }
 }

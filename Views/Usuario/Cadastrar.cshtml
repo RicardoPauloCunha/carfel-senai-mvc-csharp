@@ -20,7 +20,7 @@
 
             <div class="form-main">
                 <form method="post" action="/Usuario/Cadastrar" class="formulario flex-container">
-                    <div class="form-tipo-user flex-container">
+                    <!-- <div class="form-tipo-user flex-container">
                         <div class="tipo-user">
                             <img src="/imagem/user.png" alt="icóne usuario" class="icon-tipe-user flex-container">
                             <label>
@@ -31,7 +31,7 @@
                                 <input class="form-radio" type="radio" name="tipo" value="Admin">Admin
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <label>
                         <p>Nome Completo:</p>
@@ -63,6 +63,10 @@
                 <div class="mensagem">
                     <p>@TempData["valCadastrar"]</p>
                     <p class="mensegeInvalid">@TempData["IvalCadastrar"]</p>                
+                </div>
+
+                <div class="main-lr-item">
+                    <p>Já possui uma conta? <a href="loginn.html">Entrar</a></p>
                 </div>
 
                 <div class="sair">

@@ -15,7 +15,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Util
     
         public bool ValSenha(string senha)
         {
-            if (senha.Length >= 6)
+            if (senha.Length >= 5)
             {
                 return true;
             }

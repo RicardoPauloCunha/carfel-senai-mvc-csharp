@@ -23,8 +23,28 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
                 usuariosSalvos = new List<UsuarioModel>();
             }
         }
+        public UsuarioModel CadastrarAdmin()
+        {
+            //Dados do admin
+            UsuarioModel usuario = new UsuarioModel();
+            usuario.Id = 1;
+            usuario.Nome = "Administrador";
+            usuario.Email = "admin@carfel.com";
+            usuario.Senha = "admin";
+            usuario.Tipo = "admin";
+
+            return usuario;
+        }
         public UsuarioModel Cadastrar(UsuarioModel usuario)
         {
+            //Cadastra um admin quando o arquivo do banco de dados é criado
+            UsuarioModel usuarioAdmin;
+            if (usuariosSalvos.Count == 0)
+            {
+                usuarioAdmin = CadastrarAdmin();
+                usuariosSalvos.Add(usuarioAdmin);
+            }
+
             //Incrementa o id do usuario
             usuario.Id = usuariosSalvos.Count + 1;
 
@@ -49,6 +69,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
 
             //Escreve os bytes no arquivo
             File.WriteAllBytes("usuarios.dat", memoria.ToArray());
+            
         }
 
         public List<UsuarioModel> Listar()
@@ -59,7 +80,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
                 return new List<UsuarioModel>();
             }
             
-            //le os bytes do arquivo existente
+            //Lê os bytes do arquivo existente
             byte[] bytesSerializer = File.ReadAllBytes("usuarios.dat");
             
             //Desserializa
@@ -72,33 +93,36 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
 
         public UsuarioModel Login(string email, string senha)
         {
+            //Lê o arquivo
             List<UsuarioModel> usuario = Listar();
             foreach (var user in usuario)
             {
+                //Verifica se email e senha digitados correspondem aos do banco de dados
                 if (user.Email == email && user.Senha == senha)
                 {
+                    //Caso encontre retorna o usuario
                     return user;
                 }
             }
+            //Caso contrario retorna null
             return null;
         }
 
-        // private readonly IHttpContextAccessor _httpContextAccessor;
-        // private ISession _session => _httpContextAccessor.HttpContext.Session;
-
-        // public SomeOtherClass(IHttpContextAccessor httpContextAccessor)
-        // {
-        //     _httpContextAccessor = httpContextAccessor;
-        // }
-
-        // public void testSet()
-        // {
-        //     _session.SetString("Test", "irineu");
-        // }
-
-        // public void testGet()
-        // {
-        //     var message = _session.GetString("Test");
-        // }
+        public UsuarioModel BuscarPorId(int id)
+        {
+            //Lê o arquivo
+            List<UsuarioModel> usuario = Listar();
+            foreach (var user in usuario)
+            {
+                //Procura por um id correspondente
+                if (user.Id == id)
+                {
+                    //Caso encontre, retorna o usuario 
+                    return user;
+                }
+            }
+            //Caso contrario retorna null
+            return null;
+        }
     }
 }
