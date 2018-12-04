@@ -1,14 +1,6 @@
 {
-  "ProjectFilePath": "c:\\Users\\50473694808\\Desktop\\Projeto CarFel\\Projeto-CarFel-CkeckPoint-Web\\Projeto-CarFel-CheckPoint-Web.csproj",
+  "ProjectFilePath": "c:\\Users\\7\\Desktop\\Senai\\Projeto-CarFel-CheckPoint-Web\\Projeto-CarFel-CheckPoint-Web.csproj",
   "TargetFramework": "netcoreapp2.1",
   "TagHelpers": [],
-  "Configuration": {
-    "ConfigurationName": "MVC-2.1",
-    "LanguageVersion": "2.1",
-    "Extensions": [
-      {
-        "ExtensionName": "MVC-2.1"
-      }
-    ]
-  }
+  "Configuration": null
 }
