@@ -1,0 +1,77 @@
+@using Projeto_CarFel_CkeckPoint_Web.Models;
+@using Projeto_CarFel_CheckPoint_Web.Models;
+@{
+    ViewBag.Title = "Depoimentos";
+    Layout = "MasterPageDeslogado";
+}
+
+<div class="titulo flex-container">
+    <div class="titulo-item">
+        <h2>Depoimentos</h2>
+    </div>
+</div>
+
+<main>
+    <div class="user-dep-escrever">
+        <div class="container  flex-container">
+            <div class="dep-img flex-container" style="justify-content: flex-end;">
+                <img src="/imagem/user.png" alt="icone de usuario" style="height: 3em;">		
+            </div>
+            <div class="dep-container-escrever">
+                <div class="dep-header flex-container">
+                    <div class="dh-text">
+                        <p><b>@ViewBag.UsuarioLogN</b></p>
+                    </div>
+                </div>
+                <textarea placeholder="Deixe seu depoimento:" class="contato-item-form-input dep-textarea"></textarea>
+            </div>
+        </div>	
+    </div>
+
+    <section class="depoimentos depoimentos-pag">
+        <h2>Depoimentos</h2>
+
+        @foreach (var dep in ViewData["Depoimentos"] as List<DepoimentoModel>)
+        {
+            <div class="user-dep">
+                <div class="container  flex-container">
+                    <div class="dep-img">
+                        <img src="/imagem/user.png" alt="icone de usuario">		
+                    </div>
+                    <div class="dep-container">
+                                          
+                            <div class="dep-header flex-container">
+                            <div class="dh-text">
+                                <p><b>@dep.Usuario.Nome</b></p>
+                                <p>@dep.DataCriacao</p>
+                            </div>
+                            <!-- <div class="dh-like flex-container">
+                                <img src="/imagem/like.png" alt="icone de like" style="width:2.5em; height: auto; margin-right: 0.5em;">
+                                <p>100</p>
+                            </div> -->
+                            </div>
+                            <div class="dep-main">
+                                <p>@dep.Texto</p>
+                            </div>
+                            @if (ViewBag.UserLog == 1)
+                            {
+                                <div class="dep-footer flex-container">
+                                    <div class="df-aprovado">
+                                        <button style="margin-right: 0.5em">Aprovado</button>
+                                    </div>
+                                    <div class="df-reprovado">
+                                        <button>Reprovado</button>
+                                    </div>
+                                </div>
+                            }  
+                    </div>
+                </div>
+                <div class="dep-barra"></div>
+            </div>
+        }
+        
+        <div class="dep-buttons flex-container">
+            <button><a href="/Pagina/Home">Voltar</a></button>
+        </div>	
+    </section>
+</main>
