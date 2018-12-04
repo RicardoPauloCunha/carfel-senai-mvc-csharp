@@ -30,7 +30,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Interfaces
         /// </summary>
         /// <param name="id">Id do depoimento</param>
         /// <returns>Retorna um depoimento</returns>
-        DepoimentoModel BuscarPorId(int id);
+        DepoimentoModel BuscarPorDepoimento(int id);
 
         /// <summary>
         /// Buscar pela posição em que se encotra o depoimento atraves do id

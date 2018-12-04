@@ -1,9 +1,17 @@
 @{
     ViewBag.Title = "Preços";
-    Layout = "MasterPageDeslogado";
+    
+    if (this.ViewBag.UserLog == null)
+    {
+        Layout = "MasterPageDeslogado";
+    }
+    else
+    {
+        Layout = "MasterPageLogado";    
+    }
 }
 
-<div class="titulo">
+<div class="titulo flex-container">
     <div class="titulo-item">
         <h2>Preçõs</h2>
     </div>
@@ -22,7 +30,7 @@
                     <p>R$ 00,00</p>
                 </div>
                 <p>Por mês</p>
-                <button>Assinar ></button>
+                <button>Assinar</button>
             </div>
             <div class="preços-vantagens-item">
                 <h3>Vantagens</h3>
@@ -75,9 +83,9 @@
             
         </div>
     </section>
-    <div class="preços-contato">
+    <div class="preços-contato espacamento">
         <div class="botao-contato">
-            <button><a href="/Pagina/Contato">Contato ></a></button>
+            <button><a href="/Pagina/Contato">Contato</a></button>
         </div>
         <div class="preços-dados-contato espacamento flex-container">
             <div class="preços-dados-contato-item">
@@ -106,6 +114,6 @@
     </section>
     <div class="botao-contato">
     	<h3><b>Tire suas dúvidas diretamento conosco</b></h3>
-        <button><a href="/Pagina/Contato">Fale conosco ></a></button>
+        <button><a href="/Pagina/Contato">Fale conosco</a></button>
     </div>
 </main>

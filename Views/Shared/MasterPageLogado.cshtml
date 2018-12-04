@@ -1,30 +1,51 @@
+@using Projeto_CarFel_CkeckPoint_Web.Models;
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" type="text/css" href="/css/estilo.css">
-	<title>CarFel - @ViewBag.Title</title>
+	<title>CarFel - @ViewBag.Title </title>
 </head>
 <body>
-    <header class="flex-container">
-		<div class="logo">
-			<img src="/imagem/logo.png" alt="Logo da empresa CarFel">	
-		</div>
-		<div class="flex-container menu-links-login">
-			<nav class="menu">
-				<a action="/Pagina/Home">Home</a>
-				<a href="/Pagina/Empresa">Sobre Nós</a>
-				<a href="/Pagina/Precos">Preçõs</a>
-				<a href="/Pagina/Contato">Contato</a>
-			</nav>
-			
-            <nav class="menu menu-login">
-				<a href="/Usuario/Login">Login</a>
-				<a href="/Usuario/Cadastrar">Cadastrar-se</a>
-			</nav>
-		</div>
-		</div>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<!-- <img class="logo-img" src="imagem/logo.png" alt="Logo da empresa CarFel">	 -->
+				<a href="#" data-activates="menu-mobile" class="button-collapse">
+					<i class="material-icons">menu</i>
+				</a>
+				<script>
+				$(function(){
+					$(".button-collapse").sideNav();
+				});
+				</script>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="/Pagina/Home">Home</a></li>
+					<li><a href="/Pagina/Empresa">Sobre Nós</a></li>
+					<li><a href="/Pagina/Precos">Preçõs</a></li>
+					<li><a href="/Pagina/Contato">Contato</a></li>
+					<li><a href="/Usuario/Login">Login</a></li>
+					<li><a href="/Usuario/Cadastrar">Cadastrar-se</a></li>
+				</ul>
+				
+				<ul class="class side-nav" id="menu-mobile">
+					<li><a href="/Pagina/Home">Home</a></li>
+					<li><a href="/Pagina/Empresa">Sobre Nós</a></li>
+					<li><a href="/Pagina/Precos">Preçõs</a></li>
+					<li><a href="/Pagina/Contato">Contato</a></li>
+					<li><a href="/Usuario/Login">Login</a></li>
+					<li><a href="/Usuario/Cadastrar">Cadastrar-se</a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 
     @RenderBody()
@@ -35,24 +56,24 @@
 
             <div class="Usuarios-dep">
                 <div class="user-dep">
-                        <div class="container  flex-container">
+                        <div class="flex-container">
                             <div class="dep-img">
                                 <img src="/imagem/user.png" alt="icone de usuario">		
                             </div>
                             <div class="dep-container">
-                                <div class="dep-header flex-container">
-                                    <div class="dh-text">
-                                        <p><b>User</b></p>
-                                        <p>28/11/2018</p>
+                                    <div class="dep-header flex-container">
+                                        <div class="dh-text">
+                                            <p><b>10</b></p>
+                                            <p>10</p>
+                                        </div>
+                                        <div class="dh-like flex-container">
+                                            <img src="/imagem/like.png" alt="icone de like" style="width:2.5em; height: auto; margin-right: 0.5em;">
+                                            <p>100</p>
+                                        </div>
                                     </div>
-                                    <div class="dh-like flex-container">
-                                        <img src="/imagem/like.png" alt="icone de like" style="width:2.5em; height: auto; margin-right: 0.5em;">
-                                        <p>100</p>
+                                    <div class="dep-main">
+                                        <p>texto</p>
                                     </div>
-                                </div>
-                                <div class="dep-main">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip</p>
-                                </div>
                             </div>
                         </div>
                         <div class="dep-barra"></div>
@@ -66,7 +87,7 @@
                 </div>
                 
                 <div class="user-dep-escrever">
-                    <div class="container  flex-container">
+                    <div class="flex-container">
                         <div class="dep-img flex-container" style="justify-content: flex-end;">
                             <img src="/imagem/user.png" alt="icone de usuario" style="height: 3em;">		
                         </div>
@@ -76,9 +97,16 @@
                                 <p><b>User Logado</b></p>
                             </div>
                         </div>
-                        <textarea placeholder="Deixe seu depoimento:" class="contato-item-form-input dep-textarea"></textarea>
+                        <form method="post" action="/Depoimento/Cadastrar">
+                            <textarea name="texto" placeholder="Deixe seu depoimento:" class="contato-item-form-input dep-textarea"></textarea>
+                            <div class="flex-container" style="justify-content: flex-end">
+							    <input type="submit" value="Enviar" class="button-sub">	
+						    </div>
+                            @TempData["valDepCadastrar"]
+                        </form>
                     </div>
                 </div>	
+
             </div>	
 	    </section>
 		<section class="chat flex-container">

@@ -3,6 +3,7 @@ using Projeto_CarFel_CheckPoint_Web.Models;
 
 namespace Projeto_CarFel_CkeckPoint_Web.Models
 {
+    [Serializable]
     public class DepoimentoModel
     {
         public DateTime DataCriacao { get; set; }

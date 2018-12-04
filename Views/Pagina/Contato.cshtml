@@ -1,16 +1,23 @@
 @{
     ViewBag.Title = "Contato";
-    Layout = "MasterPageDeslogado";
+    if (this.ViewBag.UserLog == null)
+    {
+        Layout = "MasterPageDeslogado";
+    }
+    else
+    {
+        Layout = "MasterPageLogado";    
+    }
 }
 
-<div class="titulo">
+<div class="titulo flex-container">
         <div class="titulo-item">
             <h2>Contato</h2>
         </div>
 </div>
 
 <main>
-    <section class="contato flex-container flex-container-colum">
+    <section class="contato flex-container flex-container-colum espacamento">
         <div class="contato-item">
             <h1>Entrar em contato</h1>
             <div>
@@ -22,7 +29,7 @@
                 <textarea placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
             </form>
             <div class="botao-contato">
-                <button>Enviar ></button>
+                <button>Enviar</button>
             </div>
         </div>
         </div>

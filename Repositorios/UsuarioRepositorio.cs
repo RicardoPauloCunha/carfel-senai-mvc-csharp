@@ -94,8 +94,8 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
         public UsuarioModel Login(string email, string senha)
         {
             //Lê o arquivo
-            List<UsuarioModel> usuario = Listar();
-            foreach (var user in usuario)
+            List<UsuarioModel> usuarios = Listar();
+            foreach (var user in usuarios)
             {
                 //Verifica se email e senha digitados correspondem aos do banco de dados
                 if (user.Email == email && user.Senha == senha)
@@ -108,11 +108,11 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
             return null;
         }
 
-        public UsuarioModel BuscarPorId(int id)
+        public UsuarioModel BuscarPorUser(int id)
         {
             //Lê o arquivo
-            List<UsuarioModel> usuario = Listar();
-            foreach (var user in usuario)
+            List<UsuarioModel> usuarios = Listar();
+            foreach (var user in usuarios)
             {
                 //Procura por um id correspondente
                 if (user.Id == id)

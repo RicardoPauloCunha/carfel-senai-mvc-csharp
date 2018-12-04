@@ -13,16 +13,19 @@ namespace Projeto_CarFel_CheckPoint.Controllers
 
         [HttpGet]
         public IActionResult Empresa(){
+            ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
             return View();
         }
 
         [HttpGet]
         public IActionResult Precos(){
+            ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
             return View();
         }
 
         [HttpGet]
         public IActionResult Contato(){
+            ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
             return View();
         }
     }

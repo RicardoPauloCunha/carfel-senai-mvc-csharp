@@ -31,6 +31,6 @@ namespace Projeto_CarFel_CheckPoint_Web.Interfaces
         /// </summary>
         /// <param name="id">Id do usuario desejado</param>
         /// <returns>Retorna um usuario model</returns>
-        UsuarioModel BuscarPorId(int id);
+        UsuarioModel BuscarPorUser(int id);
     }
 }

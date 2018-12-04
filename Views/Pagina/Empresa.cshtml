@@ -1,16 +1,23 @@
 @{
     ViewBag.Title = "Empresa";
-    Layout = "MasterPageDeslogado";
+    if (this.ViewBag.UserLog == null)
+    {
+        Layout = "MasterPageDeslogado";
+    }
+    else
+    {
+        Layout = "MasterPageLogado";    
+    }
 }
 
-<div class="titulo">
+<div class="titulo flex-container">
     <div class="titulo-item">
         <h2>Sobre Nós</h2>
     </div>
 </div>
     
 <main>
-    <section class="empresaCF">
+    <section class="empresaCF espacamento">
         <div class="empresa-item">
             <img src="/imagem/senai.jpg" alt="Foto da frente da empresa CarFel.">
             <h1>CarFel</h1>
@@ -94,6 +101,6 @@
         </div>
     </section>
     <div class="botao-contato">
-        <button><a href="/Pagina/Contato">Fale conosco ></a></button>
+        <button><a href="/Pagina/Contato">Fale conosco</a></button>
     </div>
 </main>

@@ -17,12 +17,6 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             UsuarioRepositorio = new UsuarioRepositorio();
         }
 
-        [HttpGet]
-        public IActionResult Cadastrar() 
-        {
-            return View();
-        }
-
         //Validação do Nome
         public bool ValidarNome(string nome)
         {
@@ -31,9 +25,9 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             if (!valN)
             {
                 TempData["MensengeValN"] = "Insira o nome completo";
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         //Validação do Email
@@ -44,9 +38,9 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             if (!valE)
             {
                 TempData["MensengeValE"] = "Email deve conter @ e .";
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         //Validação da Senha
@@ -57,9 +51,9 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             if (!valS)
             {
                 TempData["MensengeValS"] = "Senha deve conter pelo menos 6 caracteres";
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         //Validação da Senha 2
@@ -70,9 +64,15 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             if (!valSs)
             {
                 TempData["MensengeValSs"] = "Senha incorreta";
-                return true;
+                return false;
             }
-            return false;
+            return true;
+        }
+        
+        [HttpGet]
+        public IActionResult Cadastrar() 
+        {
+            return View();
         }
 
         [HttpPost]
@@ -154,5 +154,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             
             return View();
         }
+
+         
     }
 }
