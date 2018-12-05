@@ -48,7 +48,7 @@ using Projeto_CarFel_CkeckPoint_Web.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"pt-br\">\r\n");
             EndContext();
             BeginContext(86, 538, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5ccf3bca6404b7eb91fa26ba25d264d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f5676ffe92c410d8fa4e0914fddb1f2", async() => {
                 BeginContext(92, 500, true);
                 WriteLiteral(@"
     <meta charset=""UTF-8"">
@@ -85,7 +85,7 @@ using Projeto_CarFel_CkeckPoint_Web.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(626, 5579, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a14098176454a2bbe4ac3da9a1ace30", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0277459c32504732ab228441eca65621", async() => {
                 BeginContext(632, 1493, true);
                 WriteLiteral(@"
     <script src=""https://code.jquery.com/jquery-2.1.1.min.js""></script>

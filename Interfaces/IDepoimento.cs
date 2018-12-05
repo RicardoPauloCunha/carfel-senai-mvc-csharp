@@ -19,13 +19,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Interfaces
         List<DepoimentoModel> Listar();
 
         /// <summary>
-        /// Exibi os depoimentos e oferece um sistema para aprova-lo ou reprova-lo
-        /// </summary>
-        /// <param name="depoimento">DepoimentoModel</param>
-        /// <returns>Retorna um depoimento aprovado</returns>
-        DepoimentoModel Aprovar(DepoimentoModel depoimento);
-
-        /// <summary>
         /// Busca na lista de depoimentos o usuario correspondente a esse id
         /// </summary>
         /// <param name="id">Id do depoimento</param>
@@ -42,8 +35,13 @@ namespace Projeto_CarFel_CkeckPoint_Web.Interfaces
         /// <summary>
         /// Excluir o depoimento da lista e da banco de dados
         /// </summary>
+        /// <param name="id">Id do depoimento</param>
         void Reprovar(int id);
 
-        void Aprovar(int id);
+        /// <summary>
+        /// Marca o depoimento com aprovado, possibilitando a visualição do mesmo pelos usuarios
+        /// </summary>
+        /// <param name="id">Do depoimento</param>
+        void Aprovar(DepoimentoModel depoimento);
     }
 }

@@ -17,6 +17,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         {
             DepoimentoRepositorio = new DepoimentoRepositorio();
         }
+        
         [HttpGet]
         public IActionResult Cadastrar()
         {
@@ -72,10 +73,19 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             return RedirectToAction("Listar");
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Aprovar(int id)
         {
-            DepoimentoRepositorio.Aprovar(id);
+            DepoimentoModel depoimento = DepoimentoRepositorio.BuscarPorDepoimento(id);
+
+            if (depoimento == null)
+            {
+                TempData["AvaliacaoSucesso"] = "Depoimento não encontrado";
+                return View();
+            }
+
+            DepoimentoRepositorio.Aprovar(depoimento);
+
             TempData["AvaliacaoSucesso"] = "Depoimento Aprovado";
             return RedirectToAction("Listar");
         }

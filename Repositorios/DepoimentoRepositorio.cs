@@ -58,11 +58,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             
         }
 
-        public DepoimentoModel Aprovar(DepoimentoModel depoimento)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public DepoimentoModel BuscarPorDepoimento(int id)
         {
             List<DepoimentoModel> depoimentos = Listar();
@@ -100,19 +95,23 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             {
                 depoimentosSalvos.RemoveAt(posicao);
             }
+
+            SerializerList();
         }
 
-        public void Aprovar(int id)
+        public void Aprovar(DepoimentoModel depoimento)
         {
-            int posicao = BuscarPosicaoPorId(id);
+            List<DepoimentoModel> depoimentos = Listar();
+            int indice = 0;
 
-            if (posicao >= 0)
+            foreach (var dep in depoimentos)
             {
-                DepoimentoRepositorio depoimentoRep = new DepoimentoRepositorio();
-                DepoimentoModel depoimento = depoimentoRep.BuscarPorDepoimento(id);
-
-                depoimento.Aprovado = true;
-                SerializerList();
+                if (dep.Id == depoimento.Id)
+                {
+                    depoimentosSalvos[indice].Aprovado = true;
+                    SerializerList();
+                }
+                indice++;
             }
         }
     }
