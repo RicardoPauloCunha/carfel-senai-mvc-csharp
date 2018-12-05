@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Projeto_CarFel_CheckPoint_Web.Models;
 using Projeto_CarFel_CheckPoint_Web.Repositorios;
+using Projeto_CarFel_CkeckPoint_Web.Interfaces;
 using Projeto_CarFel_CkeckPoint_Web.Models;
 using Projeto_CarFel_CkeckPoint_Web.Repositorios;
 
@@ -10,6 +11,12 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
 {
     public class DepoimentoController : Controller
     {
+        private IDepoimento DepoimentoRepositorio {get; set;}
+
+        public DepoimentoController()
+        {
+            DepoimentoRepositorio = new DepoimentoRepositorio();
+        }
         [HttpGet]
         public IActionResult Cadastrar()
         {
@@ -21,7 +28,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         {
             DepoimentoModel depoimento = new DepoimentoModel();
             UsuarioRepositorio usuarioRep = new UsuarioRepositorio();
-            DepoimentoRepositorio depoimentoRep = new DepoimentoRepositorio();
             int UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
 
             depoimento.Usuario = usuarioRep.BuscarPorUser(UsuarioLogId);
@@ -29,7 +35,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             depoimento.Texto = dados["texto"];
             depoimento.Aprovado = false;
 
-            depoimentoRep.Cadastrar(depoimento);
+            DepoimentoRepositorio.Cadastrar(depoimento);
 
             TempData["valDepCadastrar"] = "Depoimento Enviado com Sucesso";
             
@@ -39,7 +45,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         [HttpGet]
         public IActionResult Listar()
         {
-            DepoimentoRepositorio depoimento = new DepoimentoRepositorio();
             UsuarioRepositorio usuario = new UsuarioRepositorio();
             int UsuarioLogId = 0;
 
@@ -55,8 +60,24 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             }
             
             ViewBag.UserLog = UsuarioLogId;
-            ViewData["Depoimentos"] = depoimento.Listar();
+            ViewData["Depoimentos"] = DepoimentoRepositorio.Listar();
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Reprovar(int id)
+        {
+            DepoimentoRepositorio.Reprovar(id);
+            TempData["AvaliacaoSucesso"] = "Depoimento Excluido da lista de Usuarios";
+            return RedirectToAction("Listar");
+        }
+
+        [HttpPost]
+        public IActionResult Aprovar(int id)
+        {
+            DepoimentoRepositorio.Aprovar(id);
+            TempData["AvaliacaoSucesso"] = "Depoimento Aprovado";
+            return RedirectToAction("Listar");
         }
     }
 }

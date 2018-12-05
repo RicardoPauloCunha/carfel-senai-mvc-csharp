@@ -76,14 +76,44 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             return null;
         }
 
-        public void Excluir()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public int BuscarPosicaoPorId(int id)
         {
-            throw new System.NotImplementedException();
+            List<DepoimentoModel> usuarios = Listar();
+            int indice = 0;
+
+            foreach (var item in usuarios)
+            {
+                if (item.Id == id)
+                {
+                    return indice;
+                }
+                indice++;
+            }
+            return -1;
+        }
+
+        public void Reprovar(int id)
+        {
+            int posicao = BuscarPosicaoPorId(id);
+
+            if (posicao >= 0)
+            {
+                depoimentosSalvos.RemoveAt(posicao);
+            }
+        }
+
+        public void Aprovar(int id)
+        {
+            int posicao = BuscarPosicaoPorId(id);
+
+            if (posicao >= 0)
+            {
+                DepoimentoRepositorio depoimentoRep = new DepoimentoRepositorio();
+                DepoimentoModel depoimento = depoimentoRep.BuscarPorDepoimento(id);
+
+                depoimento.Aprovado = true;
+                SerializerList();
+            }
         }
     }
 }

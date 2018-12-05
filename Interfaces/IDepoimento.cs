@@ -42,6 +42,8 @@ namespace Projeto_CarFel_CkeckPoint_Web.Interfaces
         /// <summary>
         /// Excluir o depoimento da lista e da banco de dados
         /// </summary>
-        void Excluir();
+        void Reprovar(int id);
+
+        void Aprovar(int id);
     }
 }
