@@ -40,7 +40,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
 
             TempData["valDepCadastrar"] = "Depoimento Enviado com Sucesso";
             
-            return RedirectToAction("Home", "Pagina");
+            return RedirectToAction("Listar");
         }
 
         [HttpGet]
@@ -69,7 +69,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         public IActionResult Reprovar(int id)
         {
             DepoimentoRepositorio.Reprovar(id);
-            TempData["AvaliacaoSucesso"] = "Depoimento Excluido da lista de Usuarios";
+            TempData["AvaliacaoSucesso"] = "Depoimento Excluido da Lista";
             return RedirectToAction("Listar");
         }
 

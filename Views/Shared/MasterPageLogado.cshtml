@@ -51,72 +51,12 @@
 	</header>
 
     @RenderBody()
-    
-    <main>
-        <section class="depoimentos">
-            <h2>Depoimentos</h2>
 
-            <div class="Usuarios-dep">
-                <div class="user-dep">
-                        <div class="flex-container">
-                            <div class="dep-img">
-                                <img src="/imagem/user.png" alt="icone de usuario">		
-                            </div>
-                            <div class="dep-container">
-                                    <div class="dep-header flex-container">
-                                        <div class="dh-text">
-                                            <p><b>10</b></p>
-                                            <p>10</p>
-                                        </div>
-                                        <div class="dh-like flex-container">
-                                            <img src="/imagem/like.png" alt="icone de like" style="width:2.5em; height: auto; margin-right: 0.5em;">
-                                            <p>100</p>
-                                        </div>
-                                    </div>
-                                    <div class="dep-main">
-                                        <p>texto</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="dep-barra"></div>
-                    </div>
-                </div>
-                
-                <div class="dep-buttons flex-container">
-                    <button><a href="depoimentos.html">+ Exibir Mais</a></button>
-                    <!-- adimn 
-                    <button><a href="depoimentos.html">Avaliar</a></button> -->
-                </div>
-                
-                <div class="user-dep-escrever">
-                    <div class="flex-container">
-                        <div class="dep-img flex-container" style="justify-content: flex-end;">
-                            <img src="/imagem/user.png" alt="icone de usuario" style="height: 3em;">		
-                        </div>
-                    <div class="dep-container-escrever">
-                        <div class="dep-header flex-container">
-                            <div class="dh-text">
-                                <p><b>User Logado</b></p>
-                            </div>
-                        </div>
-                        <form method="post" action="/Depoimento/Cadastrar">
-                            <textarea name="texto" placeholder="Deixe seu depoimento:" class="contato-item-form-input dep-textarea"></textarea>
-                            <div class="flex-container" style="justify-content: flex-end">
-							    <input type="submit" value="Enviar" class="button-sub">	
-						    </div>
-                            @TempData["valDepCadastrar"]
-                        </form>
-                    </div>
-                </div>	
-
-            </div>	
-	    </section>
-		<section class="chat flex-container">
-			<div class="chat-header">
-				Envie-nos uma mensagem
-			</div>
-		</section>
-    </main>
+	<section class="chat flex-container">
+        <div class="chat-header">
+            Envie-nos uma mensagem
+        </div>
+    </section>
 
     <footer class="flex-container">
     	<ul>
