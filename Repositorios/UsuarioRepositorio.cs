@@ -54,7 +54,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
             //Serializa a lista de usuarios
             SerializerList();
 
-            //Retorna o usuario (não sei pq)
+            //Retorna o usuario
             return usuario;
         }
 

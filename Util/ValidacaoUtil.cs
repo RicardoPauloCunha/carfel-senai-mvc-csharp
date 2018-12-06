@@ -39,5 +39,14 @@ namespace Projeto_CarFel_CheckPoint_Web.Util
             }
             return false;
         }
+
+        public bool valTexto(string texto)
+        {
+            if (!string.IsNullOrEmpty(texto))
+            {
+                return true;
+            }
+            return false;
+        }
     }   
 }

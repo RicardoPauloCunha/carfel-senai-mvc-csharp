@@ -11,5 +11,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Models
         public int Id { get; set; }
         public string Texto { get; set; }
         public Boolean Aprovado { get; set; }
+        public string Situacao { get; set; }
     }
 }

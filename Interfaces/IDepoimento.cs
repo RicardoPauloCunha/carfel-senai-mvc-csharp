@@ -30,13 +30,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Interfaces
         /// </summary>
         /// <param name="id">Id do depoimento</param>
         /// <returns>Retorna o indice do depoimento</returns>
-        int BuscarPosicaoPorId(int id);
-
-        /// <summary>
-        /// Excluir o depoimento da lista e da banco de dados
-        /// </summary>
-        /// <param name="id">Id do depoimento</param>
-        void Reprovar(int id);
+        void Reprovar(DepoimentoModel depoimento);
 
         /// <summary>
         /// Marca o depoimento com aprovado, possibilitando a visualição do mesmo pelos usuarios

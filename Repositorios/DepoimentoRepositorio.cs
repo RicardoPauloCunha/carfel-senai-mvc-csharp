@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -24,22 +25,35 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
 
         public DepoimentoModel Cadastrar(DepoimentoModel depoimento)
         {
+            //Define os dados do depoimento
             depoimento.Id = depoimentosSalvos.Count + 1;
+            depoimento.DataCriacao = DateTime.Now;
+            depoimento.Aprovado = false;
+            depoimento.Situacao = "Pendente";
+            
+            //Adiciona o depoimento a lista de usuario salvos
             depoimentosSalvos.Add(depoimento);
 
+            //Serializa a lista de depoimentos
             SerializerList();
+
+            //Retorne depoimento
             return depoimento;
         }
 
         public List<DepoimentoModel> Listar()
-        {
+        {   
+            //Verifica se o arquivo já existe
             if (!File.Exists("depoimentos.dat"))
             {
+                //Caso não, cria uma nova
                 return new List<DepoimentoModel>();
             }
-
+            //Lê os bytes do arquivo existente
             byte[] bytesSerializer = File.ReadAllBytes("depoimentos.dat");
+            //Desserializa
             MemoryStream memoria = new MemoryStream(bytesSerializer);
+            //Passa os bytes para a MemoryStream
             BinaryFormatter serializer = new BinaryFormatter();
             return (List<DepoimentoModel>) serializer.Deserialize(memoria);
         }
@@ -61,6 +75,8 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
         public DepoimentoModel BuscarPorDepoimento(int id)
         {
             List<DepoimentoModel> depoimentos = Listar();
+
+            //Procura por depoimento através do id e retona-o caso encontradom, e null caso não
             foreach (var dep in depoimentos)
             {
                 if (dep.Id == id)
@@ -70,45 +86,50 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             }
             return null;
         }
-
-        public int BuscarPosicaoPorId(int id)
-        {
-            List<DepoimentoModel> usuarios = Listar();
+        public void Reprovar(DepoimentoModel depoimento) {
+            List<DepoimentoModel> depoimentos = Listar();
             int indice = 0;
 
-            foreach (var item in usuarios)
+            //Procura pela indice em que encontra o id do depoimento e retona-o caso encontrado
+            foreach (var dep in depoimentos)
             {
-                if (item.Id == id)
+                if (dep.Id == depoimento.Id)
                 {
-                    return indice;
+                    // depoimentosSalvos[indice].Aprovado = true;
+                    
+                    //Muda o variavel Situacao e salva os dados
+                    depoimentosSalvos[indice].Situacao = "Reprovado";
+                    SerializerList();
                 }
                 indice++;
             }
-            return -1;
         }
+        // public void Reprovar(int id)
+        // {
+        //     int posicao = BuscarPosicaoPorId(id);
 
-        public void Reprovar(int id)
-        {
-            int posicao = BuscarPosicaoPorId(id);
+        //     if (posicao >= 0)
+        //     {
+        //         depoimentosSalvos.RemoveAt(posicao);
+        //     }
 
-            if (posicao >= 0)
-            {
-                depoimentosSalvos.RemoveAt(posicao);
-            }
-
-            SerializerList();
-        }
+        //     SerializerList();
+        // }
 
         public void Aprovar(DepoimentoModel depoimento)
         {
             List<DepoimentoModel> depoimentos = Listar();
             int indice = 0;
 
+            //Procura pela indice em que encontra o id do depoimento e retona-o caso encontrado
             foreach (var dep in depoimentos)
             {
                 if (dep.Id == depoimento.Id)
                 {
-                    depoimentosSalvos[indice].Aprovado = true;
+                    // depoimentosSalvos[indice].Aprovado = true;
+
+                    //Muda o variavel Situacao e salva os dados
+                    depoimentosSalvos[indice].Situacao = "Aprovado";
                     SerializerList();
                 }
                 indice++;

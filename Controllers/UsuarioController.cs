@@ -9,6 +9,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
 {
     public class UsuarioController : Controller
     {
+        //Construtor
         private IUsuario UsuarioRepositorio{ get; set;}
 
         public UsuarioController()
@@ -17,10 +18,12 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             UsuarioRepositorio = new UsuarioRepositorio();
         }
 
+        //Validações
+        ValidacaoUtil val = new ValidacaoUtil();
+
         //Validação do Nome
         public bool ValidarNome(string nome)
         {
-            ValidacaoUtil val = new ValidacaoUtil();
             bool valN = val.ValNome(nome);
             if (!valN)
             {
@@ -33,7 +36,6 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
         //Validação do Email
         public bool ValidarEmail(string email)
         {
-            ValidacaoUtil val = new ValidacaoUtil();
             bool valE = val.ValEmail(email);
             if (!valE)
             {
@@ -46,11 +48,10 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
         //Validação da Senha
         public bool ValidarSenha(string senha)
         {
-            ValidacaoUtil val = new ValidacaoUtil();
             bool valS = val.ValSenha(senha);
             if (!valS)
             {
-                TempData["MensengeValS"] = "Senha deve conter pelo menos 6 caracteres";
+                TempData["MensengeValS"] = "Senha deve conter pelo menos 5 caracteres";
                 return false;
             }
             return true;
@@ -59,7 +60,6 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
         //Validação da Senha 2
         public bool ValidarSenha2(string senha, string senha2)
         {
-            ValidacaoUtil val = new ValidacaoUtil();
             bool valSs = val.ValSenha2(senha, senha2);
             if (!valSs)
             {
@@ -68,7 +68,8 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             }
             return true;
         }
-        
+
+        //Função Cadastrar
         [HttpGet]
         public IActionResult Cadastrar() 
         {
@@ -97,7 +98,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
 
                 UsuarioRepositorio.Cadastrar(usuario);
                 
-                //Retorma mensagem para usuario que login foi efetuado com sucesso
+                //Retorna mensagem para usuario que login foi efetuado com sucesso
                 TempData["valCadastrar"] = "Usuario cadastrado com sucesso";
             }
             else
@@ -108,7 +109,8 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             
             return View();
         }
-    
+
+        //Função Logar
         [HttpGet]
         public IActionResult Login()
         {

@@ -33,9 +33,12 @@
             <h2>Avaliar Depoimentos</h2>
                 @TempData["AvaliacaoSucesso"]
             <div class="Usuarios-dep">
-                @foreach (var dep in ViewData["Depoimentos"] as List<DepoimentoModel>)
+                @{
+                    List<DepoimentoModel> lista = ViewData["Depoimentos"] as List<DepoimentoModel>;
+                }
+                @for (int i =  lista.Count-1 ; i > 0; i--)
                 {
-                    if (dep.Aprovado == false)
+                    if (lista[i].Situacao == "Pendente")
                     {
                         <div class="user-dep">
                             <div class="flex-container">
@@ -45,19 +48,19 @@
                                 <div class="dep-container">          
                                     <div class="dep-header flex-container">
                                         <div class="dh-text">
-                                            <p><b>@dep.Usuario.Nome</b></p>
-                                            <p>@dep.DataCriacao</p>
+                                            <p><b>@lista[i].Usuario.Nome</b></p>
+                                            <p>@lista[i].DataCriacao</p>
                                         </div>
                                     </div>
                                     <div class="dep-main">
-                                        <p>@dep.Texto</p>
+                                        <p>@lista[i].Texto</p>
                                     </div>
                                     <div class="dep-footer flex-container">
                                         <div class="df-aprovado">
-                                            <button style="margin-right: 0.5em"><a href="/Depoimento/Aprovar?id=@dep.Id">Aprovado</a></button>
+                                            <button style="margin-right: 0.5em"><a href="/Depoimento/Aprovar?id=@lista[i].Id">Aprovado</a></button>
                                         </div>
                                         <div class="df-reprovado">
-                                            <button><a href="/Depoimento/Reprovar?id=@dep.Id">Reprovado</a></button>
+                                            <button><a href="/Depoimento/Reprovar?id=@lista[i].Id">Reprovado</a></button>
                                         </div>
                                     </div>
                                 </div>
@@ -69,12 +72,13 @@
             </div>
         </section>
 
-        <section class="depoimentos depoimentos-pag">
+        <section class="depoimentos depoimentos-pag espacamento">
             <h2>Depoimentos Aprovados</h2>
+                @TempData["AvaliacaoSucesso"]
             <div class="Usuarios-dep">
-                @foreach (var dep in ViewData["Depoimentos"] as List<DepoimentoModel>)
+                @for (int i =  lista.Count-1 ; i > 0; i--)
                 {
-                    if (dep.Aprovado)
+                    if (lista[i].Situacao == "Aprovado")
                     {
                         <div class="user-dep">
                             <div class="flex-container">
@@ -84,16 +88,16 @@
                                 <div class="dep-container">          
                                     <div class="dep-header flex-container">
                                         <div class="dh-text">
-                                            <p><b>@dep.Usuario.Nome</b></p>
-                                            <p>@dep.DataCriacao</p>
+                                            <p><b>@lista[i].Usuario.Nome</b></p>
+                                            <p>@lista[i].DataCriacao</p>
                                         </div>
                                     </div>
                                     <div class="dep-main">
-                                        <p>@dep.Texto</p>
+                                        <p>@lista[i].Texto</p>
                                     </div>
                                     <div class="dep-footer flex-container">
                                         <div class="df-reprovado">
-                                            <button><a href="/Depoimento/Reprovar?id=@dep.Id">Excluir</a></button>
+                                            <button><a href="/Depoimento/Reprovar?id=@lista[i].Id">Excluir</a></button>
                                         </div>
                                     </div>
                                 </div>
@@ -101,13 +105,13 @@
                             <div class="dep-barra"></div>
                         </div>
                     }
-                }
+                }  
             </div>
-
             <div class="dep-buttons flex-container">
-              <button><a href="/Pagina/Home">Voltar</a></button>
-            </div>	
+                    <button><a href="/Pagina/Home">Voltar</a></button>
+                </div>
         </section>
+
     }
 
     else
@@ -118,6 +122,10 @@
             @if (ViewBag.UserLog > 0)
             {
                 <div class="user-dep-escrever">
+                    @TempData["valDepCadastrar"]
+                    <div class="mensegeInvalid">
+                        @TempData["MensengeValT"]
+                    </div> 
                     <div class="flex-container">
                         <div class="dep-img flex-container" style="justify-content: flex-end;">
                             <img src="/imagem/user.png" alt="icone de usuario" style="height: 3em;">		
@@ -138,9 +146,12 @@
             }
 
             <div class="Usuarios-dep">
-                @foreach (var dep in ViewData["Depoimentos"] as List<DepoimentoModel>)
+                @{
+                    List<DepoimentoModel> lista = ViewData["Depoimentos"] as List<DepoimentoModel>;
+                }
+                @for (int i =  lista.Count-1 ; i > 0; i--)
                 {
-                    if (dep.Aprovado == true)
+                    if (lista[i].Situacao == "Aprovado")
                     {
                         <div class="user-dep">
                             <div class="flex-container">
@@ -150,19 +161,21 @@
                                 <div class="dep-container">          
                                     <div class="dep-header flex-container">
                                         <div class="dh-text">
-                                            <p><b>@dep.Usuario.Nome</b></p>
-                                            <p>@dep.DataCriacao</p>
+                                            <p><b> @lista[i].Usuario.Nome</b></p>
+                                            <p>@lista[i].DataCriacao</p>
                                         </div>
                                     </div>
                                     <div class="dep-main">
-                                        <p>@dep.Texto</p>
+                                        <p>@lista[i].Texto</p>
+                                    </div>
+                                    <div class="dep-footer flex-container">
                                     </div>
                                 </div>
                             </div>
                             <div class="dep-barra"></div>
                         </div>
                     }
-                }
+                }  
             </div>
 
             <div class="dep-buttons flex-container">
