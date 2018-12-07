@@ -126,6 +126,11 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             bool valE = ValidarEmail(dados["email"]);
             bool valS = ValidarSenha(dados["senha"]);
 
+            // if (TempData["AuthDep"] != null)
+            // {
+            //     TempData["AuthDep"] = "Você precisa estar logado para cessar essa página";
+            // }
+
             //Caso esteja tudo certo efetua o processo de login
             if (valE && valS)
             {

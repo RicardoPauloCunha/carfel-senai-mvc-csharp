@@ -143,7 +143,7 @@ a {
 }
 .mensagem{
     text-align: center;
-    margin-top: 0.5em;
+    margin: 0.5em 0 0 0;
 }
 .mensegeInvalid {
     color: rgb(253, 100, 100);

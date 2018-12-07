@@ -17,6 +17,10 @@
                     <h1>Login</h1>
             </div>
             <div class="form-main">
+                <div class="mensagem" style="margin: 0 0 0.5em 0;">
+                    <p class="mensegeInvalid">@TempData["AuthDep"]</p>                
+                </div>
+                
                 <form method="post" action="/Usuario/Login" class="formulario flex-container">
                     <label>
                         <p>Email:</p>
@@ -38,7 +42,7 @@
                 </div>
 
                 <div class="main-lr-item">
-                    <p>Não possui uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                    <p>Não possui uma conta? <a href="/Usuario/Cadastrar">Cadastre-se</a></p>
                 </div>
 
                 <div class="sair">

@@ -72,26 +72,36 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         [HttpGet]
         public IActionResult Listar()
         {
-            UsuarioRepositorio usuario = new UsuarioRepositorio();
-            int UsuarioLogId = 0;
-
-            if (HttpContext.Session.GetString("UsuarioLogId") != null)
+            if (HttpContext.Session.GetString("UsuarioLogId") == null)
             {
-                //Pega o id do usuario que esta logado
-                UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
-
-                //Procura pelo usuario correspondênte ao id
-                UsuarioModel usuarioLog = usuario.BuscarPorUser(UsuarioLogId);
-                ViewBag.UsuarioLogN = usuarioLog.Nome;
+                TempData["AuthDep"] = "Você precisa estar logado para cessar essa página";
+                return RedirectToAction("Login", "Usuario");
             }
+
+            ListarDep();
             
-            ViewBag.UserLog = UsuarioLogId;
-            
-            //Lista todos os depoimentos
-            ViewData["Depoimentos"] = DepoimentoRepositorio.Listar();
             return View();
         }
 
+        //Metodo listar depoimentos
+        public void ListarDep()
+        {
+            UsuarioRepositorio usuario = new UsuarioRepositorio();
+            int UsuarioLogId = 0;
+            
+            //Pega o id do usuario que esta logado
+            UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
+            ViewBag.UserLog = UsuarioLogId;
+
+            //Procura pelo usuario correspondênte ao id
+            UsuarioModel usuarioLog = usuario.BuscarPorUser(UsuarioLogId);
+            ViewBag.UsuarioLogN = usuarioLog.Nome;
+                
+            //Lista todos os depoimentos
+            ViewData["Depoimentos"] = DepoimentoRepositorio.Listar();
+            TempData["AuthDep"] = null;
+        }
+        
         //Função Reprovar Depoimentos
         [HttpGet]
         public IActionResult Reprovar(int id)

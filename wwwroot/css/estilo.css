@@ -868,10 +868,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.preços-plano-item p{
 		font-size: 0.8em;
 	}
-	.preços-plano-item button{
-		font-size: 0.8em;
-		margin: 0.8em;
-	}
 	.preços-vantagens-item p{
 		font-size: 0.85em;
 	}
@@ -1131,10 +1127,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		width: 70%;
 		margin: 1em auto 0 auto;
 	}
-	.preços-plano-item button{
-		font-size: 0.6em;
-		margin: 0.8em;
-	}
 	.mapa-img iframe{ 
 		height: auto;
 	}
@@ -1209,7 +1201,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     	margin: 0.7em;
 	}
 	.v-i-a img{
-		height: 5.5em;
+		height: 4.5em;
 		margin: 0.7em;
 	}
 	.caracteristicas-item {
@@ -1247,14 +1239,11 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.mapa-img{
 		margin: 2em auto 0.5em auto;
 	}
-	.vantagens-item img{
-		display: none;
-	}
 	.mapa-img{
 		margin: 1em auto 0.5em auto;
 	}
 	.Usuarios-dep {
-		padding: 0;
+		padding: 0 0.2em 0 0;
 	}
 	.dep-img img {
 		width: 2em;

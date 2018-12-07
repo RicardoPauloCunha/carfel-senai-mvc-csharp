@@ -1,4 +1,5 @@
 @using Projeto_CarFel_CkeckPoint_Web.Models;
+@using Projeto_CarFel_CheckPoint_Web.Models;
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,7 +9,7 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="/css/estilo.css">
 	<title>CarFel - @ViewBag.Title </title>
 </head>
 <body>
@@ -33,8 +34,7 @@
 					<li><a href="/Pagina/Precos">Preçõs</a></li>
 					<li><a href="/Pagina/Contato">Contato</a></li>
                     <li><a href="/Depoimento/Listar">Depoimentos</a></li>
-					<li><a href="/Usuario/Login">Login</a></li>
-					<li><a href="/Usuario/Cadastrar">Cadastrar-se</a></li>
+					<li><a href="/Shared/Sair">Sair</a></li>
 				</ul>
 				
 				<ul class="class side-nav" id="menu-mobile">
@@ -43,8 +43,7 @@
 					<li><a href="/Pagina/Precos">Preçõs</a></li>
 					<li><a href="/Pagina/Contato">Contato</a></li>
                     <li><a href="/Depoimento/Listar">Depoimentos</a></li>
-					<li><a href="/Usuario/Login">Login</a></li>
-					<li><a href="/Usuario/Cadastrar">Cadastrar-se</a></li>
+					<li><a href="/Shared/Sair">Sair</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -53,10 +52,10 @@
     @RenderBody()
 
 	<section class="chat flex-container">
-        <div class="chat-header">
-            Envie-nos uma mensagem
-        </div>
-    </section>
+		<div class="chat-header">
+			Envie-nos uma mensagem
+		</div>
+	</section>
 
     <footer class="flex-container">
     	<ul>
