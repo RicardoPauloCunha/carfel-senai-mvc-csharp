@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Http;
 using Projeto_CarFel_CheckPoint_Web.Interfaces;
 using Projeto_CarFel_CheckPoint_Web.Models;
+using Projeto_CarFel_CheckPoint_Web.Util;
 
 namespace Projeto_CarFel_CheckPoint_Web.Repositorios
 {
@@ -30,8 +32,12 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
             usuario.Id = 1;
             usuario.Nome = "Administrador";
             usuario.Email = "admin@carfel.com";
-            usuario.Senha = "admin";
             usuario.Tipo = "admin";
+
+            //Senha Criptografada
+            var hash = SHA512.Create();
+            HashUtil hashUtil = new HashUtil(hash);
+            usuario.Senha = hashUtil.CriptografarSenha("admin");
 
             return usuario;
         }
@@ -95,10 +101,13 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
         {
             //Lê o arquivo
             List<UsuarioModel> usuarios = Listar();
+            var hash = SHA512.Create();
+            HashUtil hashUtil = new HashUtil(hash);
             foreach (var user in usuarios)
             {
+                bool ValSenhaLog = hashUtil.VerificarSenha(senha, user.Senha);
                 //Verifica se email e senha digitados correspondem aos do banco de dados
-                if (user.Email == email && user.Senha == senha)
+                if (user.Email == email && ValSenhaLog == true)
                 {
                     //Caso encontre retorna o usuario
                     return user;

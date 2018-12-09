@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Projeto_CarFel_CheckPoint_Web.Interfaces;
@@ -93,8 +94,12 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             {
                 usuario.Nome = dados["nome"];
                 usuario.Email = dados["email"];
-                usuario.Senha = dados["senha"];
                 usuario.Tipo = "usuario";
+
+                //Senha criptografada
+                var hash = SHA512.Create();
+                HashUtil hashUtil = new HashUtil(hash);
+                usuario.Senha = hashUtil.CriptografarSenha(dados["senha"]);
 
                 UsuarioRepositorio.Cadastrar(usuario);
                 
