@@ -49,17 +49,21 @@ body{
 ::-webkit-input-placeholder {
 	color: rgb(124, 124, 124);
 }
-.mensegeInvalid {
-    color: rgb(253, 100, 100);
-}
 
 /*menu*/
 nav .nav-wrapper {
-    background-color: #4D4DFF;
+	background-color: #4D4DFF;
+	display: flex;
+    justify-content: space-between;
 }
 nav ul a {
 	color: #e5e5e5;
 	text-transform: uppercase;
+}
+.logo-img {
+	width: 2.5em;
+    margin: 0.5em 4em;
+    height: 3em;
 }
 /*fim menu*/
 
@@ -135,7 +139,7 @@ main{
 	margin: 1em 0 1em 0;
 }
 .vantagens img{
-	margin: 0 4em 0 4em;
+	margin: auto 4em auto 4em;
 }
 .botao-contato{
 	text-align: center;
@@ -228,9 +232,6 @@ footer img{
 .depoimentos button {
 	margin-top: 0;
 }
-.dep-container {
-	width: 100%;
-}
 .dep-img {
 	width: 6%;
 	margin-right: 0.5em;
@@ -254,9 +255,6 @@ footer img{
 	height: 0.2em;
 	background-color: rgb(65, 162, 242, 0.3);
 	margin: 0.5em 0 2em 0;
-}
-.dep-footer {
-	justify-content: flex-start;
 }
 .dep-footer button {
 	margin: 0.7em auto 0.5em auto;
@@ -356,7 +354,7 @@ footer img{
 }
 .timeline{
 	background-color: rgb(65, 162, 242, 0.2);
-	width: 100%;
+	width: 90%;
 	padding: 1em;
 	margin: 0 0 2em 0;
 	border: solid 0.1em rgb(0, 0, 0, 0.5);
@@ -365,7 +363,6 @@ footer img{
 	width: 50%;
 	max-height: 20em;
 	margin-right: 1em;
-	flex-wrap: wrap;
 }
 .timeline-item img{
 	max-width: 100%;
@@ -373,24 +370,50 @@ footer img{
 	margin:  0 0 0.5em 0;
 }
 .timeline-item-texto{
-	width: 40%;
+	width: 50%;
 }
 .timeline-ajust-margin{
 	margin: 0 0 0 1em;
 }
-.timeline-ajust-margin-top{
-	margin: 8em 0 0 0;
-}
-.timeline-ajust-margin-top-ajust{
-	margin: 5em 0 0 0;
-}
 .timeline-block{
 	flex-direction: column;
-	width: 45%;
+	width: 50%;
+	margin: 5em 0 0 0;
+}
+.timeline-show {
+	margin: 7em 0 0 0;
+}
+.timeline-hide {
+	display: none;
+}
+.conector {
+	width: 10%;
+}
+.l-maior {
+	width: 2em;
+	height: 2em;
+	position: relative;
+	right: 1em;
+    top: -0.8em;
+}
+.l-maior-r {
+	right: -1em;
+}
+.linha-horizontal-reverse{
+	background-color: rgb(65, 162, 242);
+	width: 100%;
+	height: 0.5em;
+	margin-top: 4em;
+	justify-content: flex-end;
+}
+.linha-horizontal{
+	background-color: rgb(65, 162, 242);
+	width: 112%;
+	height: 0.5em;
+	margin-top: 4em;
 }
 .linha-vertical{
 	background-color: rgb(65, 162, 242);
-	z-index: 1;
 	width: 0.5em;
 	height: auto;
 	flex-direction: column;
@@ -407,26 +430,7 @@ footer img{
 	border: solid 0.1em white;
 	margin: auto;
 }
-.time-quadrado{
-	width: 1.5em;
-    height: 1.45em;
-    background-color: rgb(65, 162, 242);
-    border: solid 0.1em rgb(0, 0, 0, 0.5);
-    transform: rotatez(45deg);
-    position: relative;
-    left: 2.3em;
-    top: 3.5em;
-}
-.time-quadrado-left{
-	width: 1.5em;
-    height: 1.45em;
-    background-color: rgb(65, 162, 242);
-    border: solid 0.1em rgb(0, 0, 0, 0.5);
-    transform: rotatez(45deg);
-    position: relative;
-    left: -1.8em;
-    top: 3.5em;
-}
+
 /* fim timeline */
 
 /* fim main */
@@ -434,16 +438,18 @@ footer img{
 /* fim css pagina empresa */
 
 /* main */
-.preços h1{
+
+.precos h1{
 	font-size: 2em;
 	text-transform: unset;
 	text-align: center;
 }
-.precos-planos{
-	width: 25%
+.precos-plano {
+	width: 30%;
+	margin: 0 auto;
 }
-.preços-plano-item{
-	width: 75%;
+.precos-plano-item {
+	width: 80%;
 	height: auto;
 	padding: 0.3em;
 	background-color: rgb(65, 162, 242, 0.3);
@@ -453,29 +459,31 @@ footer img{
 	border: solid rgb(65, 162, 242, 0.5);
 	transition: 0.5em;
 }
-.preços-plano-item h2{
-	text-transform: uppercase;
-	margin-bottom: 0.3em;
+.precos-plano-item h2{
+	margin: 0.3em auto 0.3em auto;
+}
+.precos-plano-item button{
+	margin: 0.3em auto 0.6em auto;
 }
 .valor{
-	font-size: 2.5em;
+	font-size: 2em;
 	color: #333;
-	font-weight: 800;
-	margin: 0.45em auto 0.45em auto;
-}
-.preços-vantagens-item{
-	width: 75%;
+	margin: 0.3em 0 0.3em 0;
+} 
+.precos-vantagens-item{
+	width: 80%;
 	margin: 1.5em auto 0 auto;
-}
-.preços-dados-contato-item{
+} 
+.preços-dados-contato-item {
 	margin: 0 auto 0 auto;
+	text-align: center;
 }
 .perguntas h2{
 	text-align: center;
 }
 /* fim main */
 
-/* fim css pagina preços */
+/* fim css pagina precos */
 .contato-item h1{
 	font-size: 2em;
 	font-weight: 800;
@@ -488,7 +496,7 @@ footer img{
 	margin: 0 0 1.5em 0;
 }
 .contato-item-dados h3{
-	margin: 1em 0 0.5em 0;
+	margin: 1em 0 0.3em 0;
 }
 .contato-item-dados img{
 	width: 20%;
@@ -574,7 +582,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		background-color: rgb(65, 162, 242, 0.3);
 		border: solid 0.1em rgb(0, 0, 0, 0.7)
 	}
-	.preços-plano-item:hover{
+	.precos-plano-item:hover{
 		box-shadow: 0.3em 0.3em 0.2em rgb(51, 51, 51, 0.5);
 		background-color: rgba(100, 190, 255, 0.3);
 	}
@@ -613,12 +621,12 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.escuro::after{
 		height: 354px;
 	}
-	.time-quadrado{
+	/* .time-quadrado{
 	    left: 2em;
 	}
 	.time-quadrado-left{
 	    left: -1.8em;
-	}
+	} */
 	.mapa-img iframe{
 		width: 100%; 
 		height: 27em;
@@ -637,22 +645,18 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.banner p{
 		font-size: 1em;
 	}
-
-	/*timeline*/
 	.titulo{
 		height: 4em;
 	}
 	.valor{
-		font-size: 2.2em;
-		padding: 0.7 auto 0.7 auto;
+		font-size: 1.7em;
 	}
-	.timeline p{
+	.precos-plano {
+		width: 34%;
+	}
+	.precos-vantagens-item{
 		font-size: 1em;
 	}
-	.time-quadrado{
-	    left: 1.8em;
-	}
-	/*fim timeline*/
 	.dep-img {
 		width: 7%;
 	}
@@ -676,10 +680,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.espacamento{
 		margin-bottom: 6em;
 	}
-	.logo-img{
-		width: 30px;
-		height: auto;
-	}
 	.banner{
 		height: 236px;
 	}
@@ -697,11 +697,11 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		top: -8em;
 	}
 	.vantagens img {
-		width: 30%;
+		width: 29%;
 		margin: auto 2em auto 2em;
 	}
 	.v-i-a img{
-		width: 25%;
+		width: 23%;
 	}
 
 	/*2º*/
@@ -713,32 +713,29 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		height: 5em;
 	}
 	/*timeline*/
-	.historico p{
-		font-size: 0.9em;
+	.timeline-hide {
+		display: inline-flex;
 	}
-	.time-quadrado{
-		width: 1.3em;
-		height: 1.23em;
-		left: 1.7em;
+	.timeline-show {
+		display: none;
 	}
-	.time-quadrado-left{
-		width: 1.3em;
-		height: 1.23em;
-		left: -1.7em;
+	.timeline-block {
+		width: 100%
 	}
-	.timeline-ajust-margin-top {
-    	margin: 6em 0 0 0;
-	}
-	.timeline-ajust-margin-top-ajust {
-    	margin: 4em 0 0 0;
+	.historico {
+		width: 80%;
+		margin: auto;
 	}
 	/*fim time line*/
 
-	.valor{
+	.precos-vantagens-item{
+		font-size: 0.9em;
+	}
+	/* .valor{
 		font-size: 2em;
 		margin-top: 0.5em;
 		margin-bottom: 0.5em;
-	}
+	} */
 	.perguntas h3{
 		font-size: 1.3em;
 	}
@@ -784,10 +781,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.espacamento{
 		margin-bottom: 5em;
 	}
-	.logo-img{
-		width: 30px;
-		height: auto;
-	}
 	.banner{
 		height: 184px;
 	}
@@ -812,12 +805,12 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		top: -7em;
 	}
 	.vantagens-item img{
-		max-width: 28%;
+		max-width: 26%;
     	height: 6em;
     	margin: auto 2em auto 2em;
 	}
 	.v-i-a img{
-		max-width: 24%;
+		max-width: 20%;
 		height: 6.5em;
 	}
 
@@ -829,29 +822,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		margin-bottom: 2em;
 	}
 
-	/*timeline*/
-	.historico p{
-		font-size: 0.8em;
-	}
-	.time-quadrado{
-		width: 1.1em;
-		height: 1.1em;
-		left: 1.6em;
-	}
-	.time-quadrado-left{
-		width: 1.1em;
-		height: 1.1em;
-		left: -1.6em;
-	}
-	.timeline-ajust-margin-top {
-    	margin: 6em 0 0 0;
-	}
-	.timeline-ajust-margin-top-ajust {
-    	margin: 4em 0 0 0;
-	}
-	/*fim time line*/
-
-	.preços h1{
+	.precos h1{
 		font-size: 1.5em;
 	}
 	.perguntas h2 {
@@ -860,16 +831,30 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.perguntas h3{
 		font-size: 1.2em;
 	}
-	.valor{
-		font-size: 1.5em;
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
+	.flex-container-p {
+		flex-direction: column;
 	}
-	.preços-plano-item p{
-		font-size: 0.8em;
+	.precos-plano {
+		width: 100%;
+		display: flex;
 	}
-	.preços-vantagens-item p{
-		font-size: 0.85em;
+	.precos-plano-item {
+		width: 40%;
+		margin: 0 3em 3em 4em;
+	}
+	.precos-vantagens-item{
+		width: 40%;
+		margin: 0 auto;
+	} 
+	.contato {
+		flex-direction: column;
+	}
+	.contato-item{
+		width: 90%;
+	}
+	.contato-item-dados{
+		width: 90%;
+		text-align: center;
 	}
 	.contato-item h1{
 		font-size: 1.4em;
@@ -895,6 +880,9 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.dep-img {
 		width: 9%;
 	}
+	.historico {
+		width: 82%;
+	}
 }
 @media screen and (max-width:650px){
 	.espacamento{
@@ -903,31 +891,8 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.flex-container-p{
 		flex-wrap: wrap;
 	}
-	.precos-plano{
-		width: 40%;
-		margin: 1em auto 1em auto;
-	}
-	.preços-plano-item{
-		width: 90%;
-		margin: auto;
-		margin-bottom: 1em;
-	}
-	.preços-vantagens-item{
-		width: 90%;
-		margin: auto;
-	}
 	.Usuarios-dep {
 		padding: 1em;
-	}
-	.flex-container-colum{
-		flex-direction: column;
-	}
-	.contato-item{
-		width: 90%;
-	}
-	.contato-item-dados{
-		width: 90%;
-		text-align: center;
 	}
 	.caracteristicas {
 		display: flex;
@@ -975,8 +940,25 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.dep-img img{
 		width: 2.5em;
 	}
-
+	.historico {
+		width: 85%;
+	}
+	.precos-plano-item {
+		width: 45%;
+	}
+	.precos-vantagens-item{
+		width: 45%;
+	}
+	
 }
+@media screen and (max-width:601px){
+	.logo-img {
+		width: 2em;
+		margin: 0.5em 1em;
+		height: 2.5em;
+	}
+}
+
 @media screen and (max-width:580px){
 	.Usuarios-dep {
 		padding: 0.5em;
@@ -984,21 +966,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.dep-img img {
 		width: 2.5em
 	}
-	.historico p{
-		font-size: 0.65em;
-	}
-	.time-quadrado{
-		top: 1em;
-		left: 1.4em;
-		width: 0.8em;
-		height: 0.8em;
-	}
-	.time-quadrado-left{
-		top: 1em;
-		left: -1.4em;
-		width: 0.8em;
-		height: 0.8em;
-	}
+	
 	footer {
 		flex-wrap: wrap;
 	}
@@ -1008,6 +976,16 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	}
 	.dep-img {
 		width: 10%;
+	}
+	.historico {
+		width: 90%;
+	}
+	.precos-plano-item {
+		width: 45%;
+		margin: 0 2em 3em 2em;
+	}
+	.precos-vantagens-item{
+		width: 45%;
 	}
 }
 @media screen and (max-width:520px){
@@ -1031,10 +1009,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	}
 	button{
 		margin: 1em;
-	}
-	.logo-img{
-		width: 25px;
-		height: auto;
 	}
 	.banner{
 		height: 131px;
@@ -1094,19 +1068,17 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.timeline {
 		padding: 0.5em;
 	}
-	.historico p{
-		font-size: 0.5em;
-	}
-	.time-quadrado{
-		left: 0.9em;
-	}
-	.time-quadrado-left{
-		left: -0.9em;
+	.historico {
+		width: 100%;
 	}
 	/* fim timeline */
 
-	.preços h1{
+	.precos h1{
 		font-size: 1.2em;
+	}
+	.precos-plano-item {
+		width: 50%;
+		margin: 0 1em 3em 1em;
 	}
 	.perguntas h2 {
 		margin: 1.6em 0 0 0;
@@ -1114,18 +1086,8 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.perguntas h3{
 		font-size: 1em;
 	}
-	.valor{
-		font-size: 1.5em;
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-	}
 	.flex-container-p{
 		display: flex;
-	}
-
-	.precos-plano{
-		width: 70%;
-		margin: 1em auto 0 auto;
 	}
 	.mapa-img iframe{ 
 		height: auto;
@@ -1177,15 +1139,12 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		width: 90%;
 		margin: 1.5em auto 1.5em auto;
 	}
-	.logo-img{
-		width: 1em;
-		height: auto;
-	}
 	.banner{
 		height: 106px;
 	}
 	.banner h2{
 		font-size: 0.5em;
+		margin: 0.5em 0 0.2em 0;
 	}
 	.banner p{
 		font-size: 0.4em;
@@ -1214,28 +1173,15 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		width: 25px;
 		height: 25px;
 		left: -9px;
-	}
-	.historico p{
-		font-size: 0.5em;
-	}
-	.timeline{
-		padding: 0.5em;
-	}
-	.time-quadrado{
-		left: 1em;
-	}
-	.time-quadrado-left{
-		left: -1em;
-	}
-	.preços{
-		margin-top: 1em;
-	}
-	.preços h1 {
+	}	
+	.precos h1 {
     font-size: 1em;
 	}
-	.preços-vantagens {
-    width: 45%;
+	.precos-plano-item {
+		width: 50%;
+		margin: 0 1em 3em 0;
 	}
+
 	.mapa-img{
 		margin: 2em auto 0.5em auto;
 	}
@@ -1243,7 +1189,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 		margin: 1em auto 0.5em auto;
 	}
 	.Usuarios-dep {
-		padding: 0 0.2em 0 0;
+		padding: 0;
 	}
 	.dep-img img {
 		width: 2em;
@@ -1275,17 +1221,8 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	.empresa-item img{
 		margin-bottom: 1em;
 	}
-	.preços-dados-contato{
+	.precos-dados-contato{
 		flex-direction: column;
-	}
-	.historico p{
-		font-size: 0.4em;
-	}
-	.time-quadrado{
-		height: 0.75em;
-	}
-	.time-quadrado-left{
-		height: 0.75em;
 	}
 	footer ul{
 		width: 100%;

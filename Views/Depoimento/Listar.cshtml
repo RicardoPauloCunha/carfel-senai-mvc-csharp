@@ -1,6 +1,15 @@
 @using Projeto_CarFel_CkeckPoint_Web.Models;
 @using Projeto_CarFel_CheckPoint_Web.Models;
 @{
+    if (this.ViewBag.UserLog == null)
+    {
+        Layout = "MasterPageDeslogado";
+    }
+    else
+    {
+        Layout = "MasterPageLogado";    
+    }
+    
     @if (ViewBag.UserLog == 1)
     {
         ViewBag.Title = "Central de Depoimentos";
@@ -9,7 +18,6 @@
     {
         ViewBag.Title = "Depoimentos";
     }
-    Layout = "MasterPageLogado";
 }
 
 <div class="titulo flex-container">

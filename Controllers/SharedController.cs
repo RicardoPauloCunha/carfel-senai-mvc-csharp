@@ -9,7 +9,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         public IActionResult Sair()
         {
             HttpContext.Session.Remove("UsuarioLogId");
-            return RedirectToAction("Home", "Pagina");
+            return RedirectToAction("Login", "Usuario");
         }
     }
 }

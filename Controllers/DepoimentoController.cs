@@ -72,11 +72,12 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         [HttpGet]
         public IActionResult Listar()
         {
-            if (HttpContext.Session.GetString("UsuarioLogId") == null)
-            {
-                TempData["AuthDep"] = "Você precisa estar logado para cessar essa página";
-                return RedirectToAction("Login", "Usuario");
-            }
+            HttpContext.Session.GetString("UsuarioLogId");
+            // if ( == null)
+            // {
+            //     TempData["AuthDep"] = "Você precisa estar logado para cessar essa página";
+            //     return RedirectToAction("Login", "Usuario");
+            // }
 
             ListarDep();
             
@@ -90,16 +91,21 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             int UsuarioLogId = 0;
             
             //Pega o id do usuario que esta logado
-            UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
-            ViewBag.UserLog = UsuarioLogId;
-
-            //Procura pelo usuario correspondênte ao id
-            UsuarioModel usuarioLog = usuario.BuscarPorUser(UsuarioLogId);
-            ViewBag.UsuarioLogN = usuarioLog.Nome;
-                
+            if (HttpContext.Session.GetString("UsuarioLogId") != null)
+            {
+                UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
+                ViewBag.UserLog = UsuarioLogId;
+                //Procura pelo usuario correspondênte ao id
+                UsuarioModel usuarioLog = usuario.BuscarPorUser(UsuarioLogId);
+                ViewBag.UsuarioLogN = usuarioLog.Nome;
+            }
+            else
+            {
+                ViewBag.UserLog = null;
+            }
+  
             //Lista todos os depoimentos
             ViewData["Depoimentos"] = DepoimentoRepositorio.Listar();
-            TempData["AuthDep"] = null;
         }
         
         //Função Reprovar Depoimentos
