@@ -1,3 +1,4 @@
+@using Projeto_CarFel_CheckPoint_Web.Models;
 @{
     ViewBag.Title = "Contato";
     if (this.ViewBag.UserLog == null)
@@ -11,9 +12,9 @@
 }
 
 <div class="titulo flex-container">
-        <div class="titulo-item">
-            <h2>Contato</h2>
-        </div>
+    <div class="titulo-item">
+        <h2>Contato</h2>
+    </div>
 </div>
 
 <main>
@@ -21,18 +22,37 @@
     <section class="contato flex-container espacamento">
         <div class="contato-item">
             <h1>Entrar em contato</h1>
-            <div>
-                @TempData["valCadastrar"]
-                <form method="post" action="/Pagina/Contato" class="contato-item-form">
-                    <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
-                    <input type="email" name="email" placeholder="E-mail:" class="contato-item-form-input">
-                    <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
-                    <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
-                    <div class="botao-contato">
-                        <input type="submit" value="Enviar" class="button-sub">
-                    </div>
-                </form>   
-            </div>
+            @if (ViewData["UsuarioLog"] != null)
+            {
+                UsuarioModel usuario = ViewData["UsuarioLog"] as UsuarioModel;
+                <div>
+                    @TempData["valCadastrar"]
+                    <form method="post" action="/Pagina/Contato" class="contato-item-form">
+                        <input type="text" name="nome" placeholder="@usuario.Nome" class="contato-item-form-input">
+                        <input type="email" name="email" placeholder="@usuario.Email" class="contato-item-form-input">
+                        <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
+                        <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
+                        <div class="botao-contato">
+                            <input type="submit" value="Enviar" class="button-sub">
+                        </div>
+                    </form>   
+                </div>
+            }
+            else
+            {
+                <div>
+                    @TempData["valCadastrar"]
+                    <form method="post" action="/Pagina/Contato" class="contato-item-form">
+                        <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
+                        <input type="email" name="email" placeholder="E-mail:" class="contato-item-form-input">
+                        <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
+                        <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
+                        <div class="botao-contato">
+                            <input type="submit" value="Enviar" class="button-sub">
+                        </div>
+                    </form>   
+                </div>
+            }
         </div>
         
         <div class="contato-item-dados">

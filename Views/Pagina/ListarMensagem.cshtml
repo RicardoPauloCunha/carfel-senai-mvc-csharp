@@ -1,3 +1,4 @@
+@using Projeto_CarFel_CkeckPoint_Web.Models;
 @{
     ViewBag.Title = "Contato";
     if (this.ViewBag.UserLog == null)
@@ -11,31 +12,64 @@
 }
 
 <div class="titulo flex-container">
-        <div class="titulo-item">
-            <h2>Contato</h2>
-        </div>
+    <div class="titulo-item">
+        <h2>Contato</h2>
+    </div>
 </div>
 
 <main>
-
-    
+    <section class="depoimentos depoimentos-pag espacamento">
+        <h2>Mensagens Recebidas</h2>
+        <div class="Usuarios-dep">
+            @{
+                List<MensagemModel> lista = ViewData["Mensagens"] as List<MensagemModel>;
+            }
+            @for (int i = lista.Count-1; i > 0; i--)
+            {
+                <div class="user-dep">
+                    <div class="flex-container">
+                        <div class="dep-container">
+                            <div class="dep-header flex-container">
+                                <div class="dh-text">
+                                    <p><b>@lista[i].Nome</b></p>
+                                    <p>@lista[i].Email</p>
+                                    <p>@lista[i].DataCriacao</p>
+                                </div>
+                            </div>
+                            <div class="dep-main">
+                                <p class="mensagem-assunto">Assunto: <b>@lista[i].Assunto</b></p>
+                                <p>@lista[i].Texto</p>
+                            </div>
+                            <div class="dep-footer flex-container">
+								<div class="df-reprovado">
+									<button><a href="#">Responder</a></button>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                    <div class="dep-barra"></div>
+                </div>       
+            }
+        </div>
+    </section>
 
     <section class="contato flex-container espacamento">
         <div class="contato-item">
             <h1>Entrar em contato</h1>
             <div>
-            <form class="contato-item-form">
-                <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
-                <input type="text" name="email" placeholder="E-mail:" class="contato-item-form-input">
-                <input type="text" name="telefone" placeholder="Telefone/Whatsapp:" class="contato-item-form-input">
-                <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
-                <textarea placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
-            </form>
-            <div class="botao-contato">
-                <button><a href="#">Enviar</a></button>
+                @TempData["valCadastrar"]
+                <form method="post" action="/Pagina/Contato" class="contato-item-form">
+                    <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
+                    <input type="email" name="email" placeholder="E-mail:" class="contato-item-form-input">
+                    <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
+                    <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
+                    <div class="botao-contato">
+                        <input type="submit" value="Enviar" class="button-sub">
+                    </div>
+                </form>   
             </div>
         </div>
-        </div>
+        
         <div class="contato-item-dados">
             <h2>CarFel</h2>
             <h3>Endereço:</h3>

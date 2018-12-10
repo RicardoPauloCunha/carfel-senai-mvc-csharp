@@ -556,6 +556,11 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	text-align: right;
 	margin-top: 1em;
 }
+input[type=text]:focus:not([readonly]) {
+	border: solid rgb(65, 162, 242, 0.5) 0.15em;
+	box-shadow: none;
+	
+}
 /* fim css pagina contato */
 
 /* animaçoes/efeitos */
