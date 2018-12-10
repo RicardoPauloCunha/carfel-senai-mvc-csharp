@@ -53,7 +53,7 @@ using Projeto_CarFel_CheckPoint_Web.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"pt-br\">\r\n");
             EndContext();
             BeginContext(132, 537, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c0aaa7479954e2ea973e4f0385b5f47", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5896f0e5d2364e1e87100270bac4bb08", async() => {
                 BeginContext(138, 499, true);
                 WriteLiteral(@"
     <meta charset=""UTF-8"">
@@ -90,7 +90,7 @@ using Projeto_CarFel_CheckPoint_Web.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(671, 2426, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0aad8b9f520641b68483e789baae73c5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57d7ede1338444f5a84d4d9fc58a6d04", async() => {
                 BeginContext(677, 1361, true);
                 WriteLiteral(@"
     <script src=""https://code.jquery.com/jquery-2.1.1.min.js""></script>

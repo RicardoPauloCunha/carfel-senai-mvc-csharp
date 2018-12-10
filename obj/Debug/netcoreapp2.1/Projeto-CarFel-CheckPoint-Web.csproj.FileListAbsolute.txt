@@ -215,3 +215,4 @@ C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\P
 C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.dll
 C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.pdb
 C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.csproj.CopyComplete
+C:\Users\50473694808\Desktop\Projeto CarFel\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\ListarMensagem.g.cshtml.cs

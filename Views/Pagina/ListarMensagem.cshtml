@@ -18,23 +18,24 @@
 
 <main>
 
+    
+
     <section class="contato flex-container espacamento">
         <div class="contato-item">
             <h1>Entrar em contato</h1>
             <div>
-                @TempData["valCadastrar"]
-                <form method="post" action="/Pagina/Contato" class="contato-item-form">
-                    <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
-                    <input type="email" name="email" placeholder="E-mail:" class="contato-item-form-input">
-                    <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
-                    <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
-                    <div class="botao-contato">
-                        <input type="submit" value="Enviar" class="button-sub">
-                    </div>
-                </form>   
+            <form class="contato-item-form">
+                <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
+                <input type="text" name="email" placeholder="E-mail:" class="contato-item-form-input">
+                <input type="text" name="telefone" placeholder="Telefone/Whatsapp:" class="contato-item-form-input">
+                <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
+                <textarea placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
+            </form>
+            <div class="botao-contato">
+                <button><a href="#">Enviar</a></button>
             </div>
         </div>
-        
+        </div>
         <div class="contato-item-dados">
             <h2>CarFel</h2>
             <h3>Endereço:</h3>
