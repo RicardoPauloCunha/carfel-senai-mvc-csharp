@@ -98,7 +98,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
                     // depoimentosSalvos[indice].Aprovado = true;
                     
                     //Muda o variavel Situacao e salva os dados
-                    depoimentosSalvos[indice].Situacao = "Reprovado";
+                    depoimentosSalvos[indice].Situacao = "reprovado";
                     SerializerList();
                 }
                 indice++;

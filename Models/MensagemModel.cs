@@ -11,5 +11,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Models
         public string Assunto { get; set; }
         public string Texto { get; set; }
         public DateTime DataCriacao { get; set; }
+        public string Situacao { get; set; }
     }
 }

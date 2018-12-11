@@ -65,5 +65,36 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             MemoryStream memoria = new MemoryStream(bytesSerializer);
             return (List<MensagemModel>) serializer.Deserialize(memoria);
         }
+
+        public void Excluir(MensagemModel mensagem) {
+            List<MensagemModel> mensagens = Listar();
+            int indice = 0;
+
+            //Procura pela indice em que encontra o id do depoimento e retona-o caso encontrado
+            foreach (var msn in mensagens)
+            {
+                if (msn.Id == mensagem.Id)
+                {   
+                    //Muda o variavel Situacao e salva os dados
+                    mensagensSalvos[indice].Situacao = "Reprovado";
+                    SerializerList();
+                }
+                indice++;
+            }
+        }
+
+        public MensagemModel BuscarPorMensagem(int id)
+        {
+            List<MensagemModel> mensagens = Listar();
+
+            foreach (var msn in mensagens)
+            {
+                if (msn.Id == id)
+                {
+                    return msn;
+                }
+            }
+            return null;
+        }
     }
 }

@@ -1,16 +1,8 @@
 @using Projeto_CarFel_CkeckPoint_Web.Models;
 @{
     ViewBag.Title = "Contato";
-    if (this.ViewBag.UserLog == null)
-    {
-        Layout = "MasterPageDeslogado";
-    }
-    else
-    {
-        Layout = "MasterPageLogado";    
-    }
+    Layout = "MasterPageLogado";    
 }
-
 <div class="titulo flex-container">
     <div class="titulo-item">
         <h2>Contato</h2>
@@ -20,35 +12,41 @@
 <main>
     <section class="depoimentos depoimentos-pag espacamento">
         <h2>Mensagens Recebidas</h2>
+        @TempData["AvaliacaoSucesso"]
         <div class="Usuarios-dep">
             @{
                 List<MensagemModel> lista = ViewData["Mensagens"] as List<MensagemModel>;
             }
             @for (int i = lista.Count-1; i > 0; i--)
             {
-                <div class="user-dep">
-                    <div class="flex-container">
-                        <div class="dep-container">
-                            <div class="dep-header flex-container">
-                                <div class="dh-text">
-                                    <p><b>@lista[i].Nome</b></p>
-                                    <p>@lista[i].Email</p>
-                                    <p>@lista[i].DataCriacao</p>
+                if (@lista[i].Situacao == "pedente")
+                {
+                    <div class="user-dep">
+                        <div class="flex-container">
+                            <div class="dep-container">
+                                <div class="dep-header flex-container">
+                                    <div class="dh-text">
+                                        <p><b>@lista[i].Nome</b></p>
+                                        <p>@lista[i].Email</p>
+                                        <p>@lista[i].DataCriacao</p>
+                                    </div>
+                                </div>
+                                <div class="dep-main">
+                                    <p class="mensagem-assunto">Assunto: <b>@lista[i].Assunto</b></p>
+                                    <p>@lista[i].Texto</p>
+                                </div>
+                                <div class="dep-footer flex-container">
+                                    <div class="df-reprovado">
+                                        
+                                        <button style="margin-right: 0.5em"><a href="#">Responder</a></button>
+                                        <button><a href="/Pagina/Excluir?id=@lista[i].Id">Excluir</a></button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="dep-main">
-                                <p class="mensagem-assunto">Assunto: <b>@lista[i].Assunto</b></p>
-                                <p>@lista[i].Texto</p>
-                            </div>
-                            <div class="dep-footer flex-container">
-								<div class="df-reprovado">
-									<button><a href="#">Responder</a></button>
-								</div>
-							</div>
                         </div>
+                        <div class="dep-barra"></div>
                     </div>
-                    <div class="dep-barra"></div>
-                </div>       
+                }       
             }
         </div>
     </section>

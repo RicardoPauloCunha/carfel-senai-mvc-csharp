@@ -1,4 +1,5 @@
 @using Projeto_CarFel_CheckPoint_Web.Models;
+@using Projeto_CarFel_CkeckPoint_Web.Models;
 @{
     ViewBag.Title = "Contato";
     if (this.ViewBag.UserLog == null)
@@ -25,32 +26,58 @@
             @if (ViewData["UsuarioLog"] != null)
             {
                 UsuarioModel usuario = ViewData["UsuarioLog"] as UsuarioModel;
-                <div>
-                    @TempData["valCadastrar"]
+                <div>  
                     <form method="post" action="/Pagina/Contato" class="contato-item-form">
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValN"]</p>
                         <input type="text" name="nome" placeholder="@usuario.Nome" class="contato-item-form-input">
+                    </label>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValE"]</p>
                         <input type="email" name="email" placeholder="@usuario.Email" class="contato-item-form-input">
-                        <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
-                        <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
+                    </label>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValA"]</p>
+                        <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input" required>
+                    </label>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValT"]</p>
+                        <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea" required></textarea>
+                    </label>
                         <div class="botao-contato">
                             <input type="submit" value="Enviar" class="button-sub">
                         </div>
-                    </form>   
+                    </form> 
+                    <p class="mensegeInvalid">@TempData["FalhaCadMen"]</p>  
+                    <p>@TempData["SucessoCadMen"]</p>
                 </div>
             }
             else
             {
-                <div>
-                    @TempData["valCadastrar"]
+                <div>  
                     <form method="post" action="/Pagina/Contato" class="contato-item-form">
-                        <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input">
-                        <input type="email" name="email" placeholder="E-mail:" class="contato-item-form-input">
-                        <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input">
-                        <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea"></textarea>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValN"]</p>
+                        <input type="text" name="nome" placeholder="Nome:" class="contato-item-form-input" required>
+                    </label>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValE"]</p>
+                        <input type="email" name="email" placeholder="Email:" class="contato-item-form-input" required>
+                    </label>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValA"]</p>
+                        <input type="text" name="assunto" placeholder="Assunto:" class="contato-item-form-input" required>
+                    </label>
+                    <label>
+                        <p class="mensegeInvalid">@TempData["MensengeValT"]</p>
+                        <textarea name="texto" placeholder="Mensagem:" class="contato-item-form-input contato-textarea" required></textarea>
+                    </label>
                         <div class="botao-contato">
                             <input type="submit" value="Enviar" class="button-sub">
                         </div>
-                    </form>   
+                    </form> 
+                    <p class="mensegeInvalid">@TempData["FalhaCadMen"]</p>  
+                    <p>@TempData["SucessoCadMen"]</p>
                 </div>
             }
         </div>

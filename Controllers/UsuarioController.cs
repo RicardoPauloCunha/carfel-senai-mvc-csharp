@@ -46,6 +46,18 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             return true;
         }
 
+        //Verfica se email já existe
+        public bool ValidarEmailExist(string email)
+        {
+            bool ValEE = val.ValEmailExist(email);
+            if (!ValEE)
+            {
+                TempData["MensengeValE"] = "Email já cadastrado";
+                return false;
+            }
+            return true;
+        }
+
         //Validação da Senha
         public bool ValidarSenha(string senha)
         {
@@ -86,11 +98,12 @@ namespace Projeto_CarFel_CheckPoint_Web.Controllers
             ValidacaoUtil val = new ValidacaoUtil();
             bool valN = ValidarNome(dados["nome"]);
             bool valE = ValidarEmail(dados["email"]);
+            bool ValEE = ValidarEmailExist(dados["email"]);
             bool valS = ValidarSenha(dados["senha"]);
             bool valSs = ValidarSenha2(dados["senha"], dados["senha2"]);
 
             //Caso esteja certo cadastra usuario
-            if (valN && valE && valSs)
+            if (valN && valE && ValEE && valSs)
             {
                 usuario.Nome = dados["nome"];
                 usuario.Email = dados["email"];

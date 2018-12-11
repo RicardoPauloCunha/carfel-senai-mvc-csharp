@@ -1,9 +1,25 @@
+using System.Collections.Generic;
 using Projeto_CarFel_CheckPoint_Web.Models;
+using Projeto_CarFel_CheckPoint_Web.Repositorios;
 
 namespace Projeto_CarFel_CheckPoint_Web.Util
 {
     public class ValidacaoUtil
     {
+        public bool ValEmailExist(string email)
+        {
+            UsuarioRepositorio usuarioRep = new UsuarioRepositorio();
+            List<UsuarioModel> usuarios = usuarioRep.Listar();
+
+            foreach (var user in usuarios)
+            {
+                if (user.Email == email)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         public bool ValEmail(string email)
         {
             if (email.Contains("@") && email.Contains("."))
