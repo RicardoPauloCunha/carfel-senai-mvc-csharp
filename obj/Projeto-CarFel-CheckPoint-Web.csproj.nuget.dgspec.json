@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\Senai\\Projeto-CarFel-CkeckPoint-Web\\Projeto-CarFel-CheckPoint-Web.csproj": {}
+    "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\csharp-aspnet-mvc-carfel\\Projeto-CarFel-CheckPoint-Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\Senai\\Projeto-CarFel-CkeckPoint-Web\\Projeto-CarFel-CheckPoint-Web.csproj": {
+    "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\csharp-aspnet-mvc-carfel\\Projeto-CarFel-CheckPoint-Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\Senai\\Projeto-CarFel-CkeckPoint-Web\\Projeto-CarFel-CheckPoint-Web.csproj",
+        "projectUniqueName": "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\csharp-aspnet-mvc-carfel\\Projeto-CarFel-CheckPoint-Web.csproj",
         "projectName": "Projeto-CarFel-CheckPoint-Web",
-        "projectPath": "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\Senai\\Projeto-CarFel-CkeckPoint-Web\\Projeto-CarFel-CheckPoint-Web.csproj",
+        "projectPath": "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\csharp-aspnet-mvc-carfel\\Projeto-CarFel-CheckPoint-Web.csproj",
         "packagesPath": "C:\\Users\\ricar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\Senai\\Projeto-CarFel-CkeckPoint-Web\\obj\\",
+        "outputPath": "C:\\Users\\ricar\\OneDrive\\Área de Trabalho\\csharp-aspnet-mvc-carfel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
