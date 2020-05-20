@@ -6,11 +6,11 @@ namespace Projeto_CarFel_CheckPoint_Web.Util
 {
     public class HashUtil
     {
-        private HashAlgorithm _algoritimo;
+        private readonly HashAlgorithm _algoritimo;
 
-        public HashUtil(HashAlgorithm algoritimo)
+        public HashUtil()
         {
-            _algoritimo = algoritimo;
+            _algoritimo = SHA512.Create();
         }
 
         public string CriptografarSenha(string senha)
@@ -19,6 +19,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Util
             var encryptedPassword = _algoritimo.ComputeHash(encodeValue);
 
             var sb = new StringBuilder();
+
             foreach (var caracter in encryptedPassword)
             {
                 sb.Append(caracter.ToString("X2"));
@@ -37,6 +38,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Util
             var encryptedPassword = _algoritimo.ComputeHash(Encoding.UTF8.GetBytes(senhaDigitada));
 
             var sb = new StringBuilder();
+
             foreach (var caractere in encryptedPassword)
             {
                 sb.Append(caractere.ToString("X2"));

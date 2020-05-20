@@ -1,36 +1,42 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using Projeto_CarFel_CkeckPoint_Web.Interfaces;
 using Projeto_CarFel_CkeckPoint_Web.Models;
 
 namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
 {
-    public class MensagemRepositorio
+    public class MensagemRepositorio : IMensagem
     {
-        public List<MensagemModel> mensagensSalvos { get; private set; }
+        public List<MensagemModel> _mensagens;
 
         public MensagemRepositorio()
         {
-            if (File.Exists("mensagens.dat"))
+            if (File.Exists("filedata/mensagens.dat"))
             {
-                mensagensSalvos = Listar();
+                _mensagens = Listar();
             }
             else
             {
-                mensagensSalvos = new List<MensagemModel>();
+                _mensagens = new List<MensagemModel>();
             }
         }
 
         public MensagemModel Cadastrar(MensagemModel mensagem)
         {
-            mensagem.Id = mensagensSalvos.Count + 1;
+            // Atribui os novos valores
+            mensagem.Id = _mensagens.Count + 1;
             mensagem.DataCriacao = DateTime.Now;
 
-            mensagensSalvos.Add(mensagem);
+            // Adiciona na lista
+            _mensagens.Add(mensagem);
 
+            // Serealiza os dados
             SerializerList();
 
+            // Retorna as mensagens
             return mensagem;
         }
 
@@ -41,60 +47,51 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             BinaryFormatter serializer = new BinaryFormatter();
 
             //Serializa e guarda os dados dentro da MemoryStream(memoria)
-            serializer.Serialize(memoria, mensagensSalvos);
+            serializer.Serialize(memoria, _mensagens);
 
             //Escreve os bytes no arquivo
-            File.WriteAllBytes("mensagens.dat", memoria.ToArray());   
+            File.WriteAllBytes("filedata/mensagens.dat", memoria.ToArray());   
         }
 
         public List<MensagemModel> Listar()
         {
             //Verifica se o arquivo existe
-            if (!File.Exists("mensagens.dat"))
+            if (!File.Exists("filedata/mensagens.dat"))
             {
                 return new List<MensagemModel>();
             }
             
             //Lê os bytes do arquivo existente
-            byte[] bytesSerializer = File.ReadAllBytes("mensagens.dat");
+            byte[] bytesSerializer = File.ReadAllBytes("filedata/mensagens.dat");
             
             //Desserializa
             BinaryFormatter serializer = new BinaryFormatter();
 
             //Passa os bytes para a MemoryStream
             MemoryStream memoria = new MemoryStream(bytesSerializer);
+
+            // Retorna as mensagens
             return (List<MensagemModel>) serializer.Deserialize(memoria);
         }
 
         public void Excluir(MensagemModel mensagem) {
-            List<MensagemModel> mensagens = Listar();
-            int indice = 0;
+            // Busca a mensagem
+            MensagemModel mensagemEncontrada = _mensagens.FirstOrDefault(x => x.Id == mensagem.Id);
 
-            //Procura pela indice em que encontra o id do depoimento e retona-o caso encontrado
-            foreach (var msn in mensagens)
-            {
-                if (msn.Id == mensagem.Id)
-                {   
-                    //Muda o variavel Situacao e salva os dados
-                    mensagensSalvos[indice].Situacao = "Reprovado";
-                    SerializerList();
-                }
-                indice++;
-            }
+            // Caso não encontre
+            if (mensagemEncontrada == null) return;
+
+            // Muda o variavel Situacao e salva os dados
+            mensagemEncontrada.Situacao = "Reprovado";
+
+            // Salva os dados
+            SerializerList();
         }
 
         public MensagemModel BuscarPorMensagem(int id)
         {
-            List<MensagemModel> mensagens = Listar();
-
-            foreach (var msn in mensagens)
-            {
-                if (msn.Id == id)
-                {
-                    return msn;
-                }
-            }
-            return null;
+            // Busca a mensagem por id
+            return _mensagens.FirstOrDefault(x => x.Id == id);
         }
     }
 }

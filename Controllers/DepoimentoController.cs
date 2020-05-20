@@ -13,24 +13,32 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
     public class DepoimentoController : Controller
     {
         //Construtor
-        private IDepoimento DepoimentoRepositorio {get; set;}
+        private readonly IDepoimento _depoimentoRepositorio;
+        private readonly ValidacaoUtil _validacaoUtil;
+        private readonly UsuarioRepositorio _usuarioRepositorio;
 
         public DepoimentoController()
         {
             //Polimorfismo
-            DepoimentoRepositorio = new DepoimentoRepositorio();
+            _depoimentoRepositorio = new DepoimentoRepositorio();
+            _validacaoUtil = new ValidacaoUtil();
+            _usuarioRepositorio = new UsuarioRepositorio();
         }
 
         //validação Texto
         public bool ValTexto(string texto)
         {
-            ValidacaoUtil val = new ValidacaoUtil();
-            bool valT = val.valTexto(texto);
+            // Valida o texto
+            bool valT = _validacaoUtil.valTexto(texto);
+
+            // Caso não seja válido
             if (!valT)
             {
+                // Retorna erro
                 TempData["MensengeValT"] = "Insira um Texto para pode enviar o Depoimento";
                 return false;
             }
+
             return true;
         }
         
@@ -44,8 +52,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         [HttpPost]
         public IActionResult Cadastrar(IFormCollection dados)
         {
-            DepoimentoModel depoimento = new DepoimentoModel();
-            UsuarioRepositorio usuarioRep = new UsuarioRepositorio();
+            // Valida o texto
             bool valT = ValTexto(dados["texto"]);
 
             //Pega o id do Usuario Logado
@@ -54,14 +61,20 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             //Caso os dados estejam certos, cadastra depoimento
             if (valT)
             {
-                //Procura pelo usuario correspondênte ao depoimento atraves do id
-                depoimento.Usuario = usuarioRep.BuscarPorUser(UsuarioLogId);
+                // Declara o depoimento
+                DepoimentoModel depoimentoModel = new DepoimentoModel();
 
-                depoimento.Texto = dados["texto"];
-                DepoimentoRepositorio.Cadastrar(depoimento);
+                //Procura pelo usuario correspondênte ao depoimento atraves do id
+                depoimentoModel.Usuario = _usuarioRepositorio.BuscarPorUser(UsuarioLogId);
+
+                // Atribui os dados
+                depoimentoModel.Texto = dados["texto"];
+
+                // Cadastra o depoimento
+                _depoimentoRepositorio.Cadastrar(depoimentoModel);
 
                 //Retorna mensagem para usuario que cadastro do dep foi efetuado com sucesso
-                TempData["valDepCadastrar"] = "Depoimento Enviado com Sucesso";
+                TempData["valDepCadastrar"] = "Depoimento Enviado com Sucesso. Será avalidado pelo admin antes de ser exibido";
             }
 
             //Retorna para a página de depoimentos
@@ -72,40 +85,27 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         [HttpGet]
         public IActionResult Listar()
         {
-            HttpContext.Session.GetString("UsuarioLogId");
-            // if ( == null)
-            // {
-            //     TempData["AuthDep"] = "Você precisa estar logado para cessar essa página";
-            //     return RedirectToAction("Login", "Usuario");
-            // }
 
-            ListarDep();
-            
-            return View();
-        }
-
-        //Metodo listar depoimentos
-        public void ListarDep()
-        {
-            UsuarioRepositorio usuario = new UsuarioRepositorio();
-            int UsuarioLogId = 0;
-            
             //Pega o id do usuario que esta logado
             if (HttpContext.Session.GetString("UsuarioLogId") != null)
             {
-                UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
+                // Recupera o id e adicina na bag
+                int UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
                 ViewBag.UserLog = UsuarioLogId;
-                //Procura pelo usuario correspondênte ao id
-                UsuarioModel usuarioLog = usuario.BuscarPorUser(UsuarioLogId);
+
+                // Procura pelo usuario correspondênte ao id e adiciona na bag
+                UsuarioModel usuarioLog = _usuarioRepositorio.BuscarPorUser(UsuarioLogId);
                 ViewBag.UsuarioLogN = usuarioLog.Nome;
             }
             else
             {
                 ViewBag.UserLog = null;
             }
-  
+
             //Lista todos os depoimentos
-            ViewData["Depoimentos"] = DepoimentoRepositorio.Listar();
+            ViewData["Depoimentos"] = _depoimentoRepositorio.Listar();
+
+            return View();
         }
         
         //Função Reprovar Depoimentos
@@ -113,7 +113,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
         public IActionResult Reprovar(int id)
         {
             //Procura pelo depoimento
-            DepoimentoModel depoimento = DepoimentoRepositorio.BuscarPorDepoimento(id);
+            DepoimentoModel depoimento = _depoimentoRepositorio.BuscarPorDepoimento(id);
 
             //Caso não encontrado
             if (depoimento == null)
@@ -123,27 +123,19 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             }
             
             //Caso encontrado
-            DepoimentoRepositorio.Reprovar(depoimento);
+            _depoimentoRepositorio.Reprovar(depoimento);
 
             //Retorna mensagem para user e redireciona ele para a pagina de depoimentos
             TempData["AvaliacaoSucesso"] = "Depoimento Excluido da Lista";
             return RedirectToAction("Listar");
         }
 
-        // Metodo que exclui permanentemente o depoimento do banco de dados 
-        // public IActionResult Reprovar(int id)
-        // {
-        //     DepoimentoRepositorio.Reprovar(id);
-        //     TempData["AvaliacaoSucesso"] = "Depoimento Excluido da Lista";
-        //     return RedirectToAction("Listar");
-        // }
-
         //Função Aprovar Depoimento
         [HttpGet]
         public IActionResult Aprovar(int id)
         {
             //Procura pelo depoimento
-            DepoimentoModel depoimento = DepoimentoRepositorio.BuscarPorDepoimento(id);
+            DepoimentoModel depoimento = _depoimentoRepositorio.BuscarPorDepoimento(id);
 
             //Caso não encontrado
             if (depoimento == null)
@@ -153,7 +145,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Controllers
             }
 
             //Caso encontrado
-            DepoimentoRepositorio.Aprovar(depoimento);
+            _depoimentoRepositorio.Aprovar(depoimento);
 
             //Retorna mensagem para user e redireciona ele para a pagina de depoimentos
             TempData["AvaliacaoSucesso"] = "Depoimento Aprovado";

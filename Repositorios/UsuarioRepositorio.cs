@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Http;
@@ -12,50 +13,58 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
 {
     public class UsuarioRepositorio : IUsuario
     {
-        public List<UsuarioModel> usuariosSalvos { get; private set; }
+        public List<UsuarioModel> _usuarios;
 
         public UsuarioRepositorio()
         {
-            if (File.Exists("usuarios.dat"))
+            // Verifica se o arquivo existe
+            if (File.Exists("filedata/usuarios.dat"))
             {
-                usuariosSalvos = Listar();
+                // Lista os usuarios
+                _usuarios = Listar();
             }
             else
             {
-                usuariosSalvos = new List<UsuarioModel>();
+                // Declara uma nova lista
+                _usuarios = new List<UsuarioModel>();
             }
         }
+
         public UsuarioModel CadastrarAdmin()
         {
-            //Dados do admin
-            UsuarioModel usuario = new UsuarioModel();
-            usuario.Id = 1;
-            usuario.Nome = "Administrador";
-            usuario.Email = "admin@carfel.com";
-            usuario.Tipo = "admin";
-
             //Senha Criptografada
-            var hash = SHA512.Create();
-            HashUtil hashUtil = new HashUtil(hash);
-            usuario.Senha = hashUtil.CriptografarSenha("admin");
+            HashUtil hashUtil = new HashUtil();
 
+            // Faz o hash da senha
+            string senhaHash = hashUtil.CriptografarSenha("admin");
+
+            //Dados do admin
+            UsuarioModel usuario = new UsuarioModel(1, "Administrador", "admin@carfel.com", senhaHash, "admin");
+
+            // Cadastra o admin
             return usuario;
         }
+
         public UsuarioModel Cadastrar(UsuarioModel usuario)
         {
-            //Cadastra um admin quando o arquivo do banco de dados é criado
+            // Declara a variavel do usuário admin
             UsuarioModel usuarioAdmin;
-            if (usuariosSalvos.Count == 0)
+            
+            // Cadastra um admin quando o arquivo do banco de dados é criado
+            if (_usuarios.Count == 0)
             {
+                // Cria o usuário
                 usuarioAdmin = CadastrarAdmin();
-                usuariosSalvos.Add(usuarioAdmin);
+                
+                // Adiciona na lista
+                _usuarios.Add(usuarioAdmin);
             }
 
-            //Incrementa o id do usuario
-            usuario.Id = usuariosSalvos.Count + 1;
+            // Incrementa o id do usuario
+            usuario.Id = _usuarios.Count + 1;
 
             //Adiciona a lista de usuariosSalvos
-            usuariosSalvos.Add(usuario);
+            _usuarios.Add(usuario);
 
             //Serializa a lista de usuarios
             SerializerList();
@@ -71,67 +80,62 @@ namespace Projeto_CarFel_CheckPoint_Web.Repositorios
             BinaryFormatter serializer = new BinaryFormatter();
 
             //Serializa e guarda os dados dentro da MemoryStream(memoria)
-            serializer.Serialize(memoria, usuariosSalvos);
+            serializer.Serialize(memoria, _usuarios);
 
             //Escreve os bytes no arquivo
-            File.WriteAllBytes("usuarios.dat", memoria.ToArray());
-            
+            File.WriteAllBytes("filedata/usuarios.dat", memoria.ToArray());
         }
 
         public List<UsuarioModel> Listar()
         {
             //Verifica se o arquivo existe
-            if (!File.Exists("usuarios.dat"))
+            if (!File.Exists("filedata/usuarios.dat"))
             {
                 return new List<UsuarioModel>();
             }
             
             //Lê os bytes do arquivo existente
-            byte[] bytesSerializer = File.ReadAllBytes("usuarios.dat");
+            byte[] bytesSerializer = File.ReadAllBytes("filedata/usuarios.dat");
             
             //Desserializa
             BinaryFormatter serializer = new BinaryFormatter();
 
             //Passa os bytes para a MemoryStream
             MemoryStream memoria = new MemoryStream(bytesSerializer);
+
+            // Retorna a lista de usuário
             return (List<UsuarioModel>) serializer.Deserialize(memoria);
         }
 
         public UsuarioModel Login(string email, string senha)
         {
-            //Lê o arquivo
-            List<UsuarioModel> usuarios = Listar();
-            var hash = SHA512.Create();
-            HashUtil hashUtil = new HashUtil(hash);
-            foreach (var user in usuarios)
+            // Cria os objetos para hashar a senha
+            HashUtil hashUtil = new HashUtil();
+
+            // Busca o usuário com esse email
+            UsuarioModel usuario = _usuarios.FirstOrDefault(x => x.Email == email);
+
+            // Caso não achei nenhum usuário
+            if (usuario == null) return null;
+
+            // Verifica se a senha é igual
+            bool senhaEhValida = hashUtil.VerificarSenha(senha, usuario.Senha);
+
+            // Verifica se a senha é válida
+            if (senhaEhValida)
             {
-                bool ValSenhaLog = hashUtil.VerificarSenha(senha, user.Senha);
-                //Verifica se email e senha digitados correspondem aos do banco de dados
-                if (user.Email == email && ValSenhaLog == true)
-                {
-                    //Caso encontre retorna o usuario
-                    return user;
-                }
+                // Retorna o usuario
+                return usuario;
             }
+
             //Caso contrario retorna null
             return null;
         }
 
         public UsuarioModel BuscarPorUser(int id)
         {
-            //Lê o arquivo
-            List<UsuarioModel> usuarios = Listar();
-            foreach (var user in usuarios)
-            {
-                //Procura por um id correspondente
-                if (user.Id == id)
-                {
-                    //Caso encontre, retorna o usuario 
-                    return user;
-                }
-            }
-            //Caso contrario retorna null
-            return null;
+            // Busca o usuário por id
+            return _usuarios.FirstOrDefault(x => x.Id == id);
         }
     }
 }

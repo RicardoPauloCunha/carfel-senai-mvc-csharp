@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Projeto_CarFel_CkeckPoint_Web.Interfaces;
 using Projeto_CarFel_CkeckPoint_Web.Models;
@@ -9,30 +10,30 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
 {
     public class DepoimentoRepositorio : IDepoimento
     {
-        public List<DepoimentoModel> depoimentosSalvos {get; private set;}
+        public List<DepoimentoModel> _depoimentos;
 
         public DepoimentoRepositorio()
         {
-            if (File.Exists("depoimentos.dat"))
+            if (File.Exists("filedata/depoimentos.dat"))
             {
-                depoimentosSalvos = Listar();
+                _depoimentos = Listar();
             }
             else
             {
-                depoimentosSalvos = new List<DepoimentoModel>();
+                _depoimentos = new List<DepoimentoModel>();
             }
         }
 
         public DepoimentoModel Cadastrar(DepoimentoModel depoimento)
         {
             //Define os dados do depoimento
-            depoimento.Id = depoimentosSalvos.Count + 1;
+            depoimento.Id = _depoimentos.Count + 1;
             depoimento.DataCriacao = DateTime.Now;
             depoimento.Aprovado = false;
             depoimento.Situacao = "Pendente";
             
             //Adiciona o depoimento a lista de usuario salvos
-            depoimentosSalvos.Add(depoimento);
+            _depoimentos.Add(depoimento);
 
             //Serializa a lista de depoimentos
             SerializerList();
@@ -44,17 +45,22 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
         public List<DepoimentoModel> Listar()
         {   
             //Verifica se o arquivo já existe
-            if (!File.Exists("depoimentos.dat"))
+            if (!File.Exists("filedata/depoimentos.dat"))
             {
                 //Caso não, cria uma nova
                 return new List<DepoimentoModel>();
             }
+
             //Lê os bytes do arquivo existente
-            byte[] bytesSerializer = File.ReadAllBytes("depoimentos.dat");
+            byte[] bytesSerializer = File.ReadAllBytes("filedata/depoimentos.dat");
+
             //Desserializa
             MemoryStream memoria = new MemoryStream(bytesSerializer);
+
             //Passa os bytes para a MemoryStream
             BinaryFormatter serializer = new BinaryFormatter();
+
+            // Retorna os depoimentos
             return (List<DepoimentoModel>) serializer.Deserialize(memoria);
         }
 
@@ -65,75 +71,45 @@ namespace Projeto_CarFel_CkeckPoint_Web.Repositorios
             BinaryFormatter serializer = new BinaryFormatter();
 
             //Serializa e guarda os dados dentro da MemoryStream(memoria)
-            serializer.Serialize(memoria, depoimentosSalvos);
+            serializer.Serialize(memoria, _depoimentos);
 
             //Escreve os bytes no arquivo
-            File.WriteAllBytes("depoimentos.dat", memoria.ToArray());
-            
+            File.WriteAllBytes("filedata/depoimentos.dat", memoria.ToArray());
         }
 
         public DepoimentoModel BuscarPorDepoimento(int id)
         {
-            List<DepoimentoModel> depoimentos = Listar();
-
-            //Procura por depoimento através do id e retona-o caso encontradom, e null caso não
-            foreach (var dep in depoimentos)
-            {
-                if (dep.Id == id)
-                {
-                    return dep;
-                }
-            }
-            return null;
+            // Busca o depoimento por id
+            return _depoimentos.FirstOrDefault(x => x.Id == id);
         }
+
         public void Reprovar(DepoimentoModel depoimento) {
-            List<DepoimentoModel> depoimentos = Listar();
-            int indice = 0;
+            // Busca o depoimento
+            DepoimentoModel depoimentoEncontrado = _depoimentos.FirstOrDefault(x => x.Id == depoimento.Id);
 
-            //Procura pela indice em que encontra o id do depoimento e retona-o caso encontrado
-            foreach (var dep in depoimentos)
-            {
-                if (dep.Id == depoimento.Id)
-                {
-                    // depoimentosSalvos[indice].Aprovado = true;
-                    
-                    //Muda o variavel Situacao e salva os dados
-                    depoimentosSalvos[indice].Situacao = "reprovado";
-                    SerializerList();
-                }
-                indice++;
-            }
+            // Caso não encontre
+            if (depoimentoEncontrado == null) return;
+
+            // Muda o variavel Situacao e salva os dados
+            depoimentoEncontrado.Situacao = "Reprovado";
+
+            // Salva
+            SerializerList();
         }
-        // public void Reprovar(int id)
-        // {
-        //     int posicao = BuscarPosicaoPorId(id);
-
-        //     if (posicao >= 0)
-        //     {
-        //         depoimentosSalvos.RemoveAt(posicao);
-        //     }
-
-        //     SerializerList();
-        // }
 
         public void Aprovar(DepoimentoModel depoimento)
         {
-            List<DepoimentoModel> depoimentos = Listar();
-            int indice = 0;
+            // Busca o depoimento
+            DepoimentoModel depoimentoEncontrado = _depoimentos.FirstOrDefault(x => x.Id == depoimento.Id);
 
-            //Procura pela indice em que encontra o id do depoimento e retona-o caso encontrado
-            foreach (var dep in depoimentos)
-            {
-                if (dep.Id == depoimento.Id)
-                {
-                    // depoimentosSalvos[indice].Aprovado = true;
+            // Caso não encontre
+            if (depoimentoEncontrado == null) return;
 
-                    //Muda o variavel Situacao e salva os dados
-                    depoimentosSalvos[indice].Situacao = "Aprovado";
-                    SerializerList();
-                }
-                indice++;
-            }
+            // Muda o variavel Situacao e salva os dados
+            depoimentoEncontrado.Situacao = "Aprovado";
+
+            // Salva
+            SerializerList();
         }
     }
 }

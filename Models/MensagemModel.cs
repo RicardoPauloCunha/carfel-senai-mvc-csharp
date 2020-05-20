@@ -12,5 +12,30 @@ namespace Projeto_CarFel_CkeckPoint_Web.Models
         public string Texto { get; set; }
         public DateTime DataCriacao { get; set; }
         public string Situacao { get; set; }
+
+        public MensagemModel()
+        {
+
+        }
+
+        public MensagemModel(int id, string nome, string email, string assunto, string texto, DateTime dataCriacao, string situacao)
+        {
+            Id = id;
+            Nome = nome;
+            Email = email;
+            Assunto = assunto;
+            Texto = texto;
+            DataCriacao = dataCriacao;
+            Situacao = situacao;
+        }
+
+        public MensagemModel(string nome, string email, string assunto, string texto, string situacao)
+        {
+            Nome = nome;
+            Email = email;
+            Assunto = assunto;
+            Texto = texto;
+            Situacao = situacao;
+        }
     }
 }

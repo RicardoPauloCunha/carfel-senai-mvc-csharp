@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Projeto_CarFel_CkeckPoint_Web.Models;
+using System.Collections.Generic;
 
 namespace Projeto_CarFel_CkeckPoint_Web.Interfaces
 {

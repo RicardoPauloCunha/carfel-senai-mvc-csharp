@@ -217,3 +217,36 @@ C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\P
 C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.csproj.CopyComplete
 C:\Users\50473694808\Desktop\Projeto CarFel\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\ListarMensagem.g.cshtml.cs
 C:\Users\7\Desktop\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\ListarMensagem.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.deps.json
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.runtimeconfig.json
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.runtimeconfig.dev.json
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.dll
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.pdb
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.Views.dll
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\bin\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.Views.pdb
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.csprojAssemblyReference.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.csproj.CoreCompileInputs.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.RazorAssemblyInfo.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.RazorAssemblyInfo.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.AssemblyInfoInputs.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.AssemblyInfo.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.TagHelpers.input.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.TagHelpers.output.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.RazorCoreGenerate.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Depoimento\Listar.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\Contato.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\Empresa.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\Home.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\ListarMensagem.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Pagina\Precos.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\MasterPageCadastroLogin.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\MasterPageDeslogado.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Shared\MasterPageLogado.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Cadastrar.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.RazorTargetAssemblyInfo.cache
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.RazorTargetAssemblyInfo.cs
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.Views.pdb
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.dll
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.pdb
+C:\Users\ricar\OneDrive\Área de Trabalho\Senai\Projeto-CarFel-CkeckPoint-Web\obj\Debug\netcoreapp2.1\Projeto-CarFel-CheckPoint-Web.csproj.CopyComplete

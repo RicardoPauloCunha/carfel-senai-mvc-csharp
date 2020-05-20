@@ -11,5 +11,26 @@ namespace Projeto_CarFel_CheckPoint_Web.Models
         public string Senha { get; set; }
         public string Tipo { get; set; }
 
+        public UsuarioModel()
+        {
+
+        }
+
+        public UsuarioModel(int id, string nome, string email, string senha, string tipo)
+        {
+            Id = id;
+            Nome = nome;
+            Email = email;
+            Senha = senha;
+            Tipo = tipo;
+        }
+
+        public UsuarioModel(string nome, string email, string senha, string tipo)
+        {
+            Nome = nome;
+            Email = email;
+            Senha = senha;
+            Tipo = tipo;
+        }
     }
 }
