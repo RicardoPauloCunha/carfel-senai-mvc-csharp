@@ -1,7 +1,7 @@
 using System;
-using Projeto_CarFel_CheckPoint_Web.Models;
+using CheckPoint.Models;
 
-namespace Projeto_CarFel_CkeckPoint_Web.Models
+namespace CheckPoint.Models
 {
     [Serializable]
     public class DepoimentoModel
@@ -12,5 +12,19 @@ namespace Projeto_CarFel_CkeckPoint_Web.Models
         public bool Aprovado { get; set; }
         public UsuarioModel Usuario { get; set; }
         public DateTime DataCriacao { get; set; }
+
+        public DepoimentoModel()
+        {
+
+        }
+
+        public DepoimentoModel(string texto, UsuarioModel usuario)
+        {
+            Texto = texto;
+            Usuario = usuario;
+            DataCriacao = DateTime.Now;
+            Aprovado = false;
+            Situacao = "Pendente";
+        }
     }
 }

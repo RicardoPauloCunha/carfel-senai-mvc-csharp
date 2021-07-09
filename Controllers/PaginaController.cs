@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Projeto_CarFel_CheckPoint_Web.Interfaces;
-using Projeto_CarFel_CheckPoint_Web.Models;
-using Projeto_CarFel_CheckPoint_Web.Repositorios;
-using Projeto_CarFel_CheckPoint_Web.Util;
-using Projeto_CarFel_CkeckPoint_Web.Interfaces;
-using Projeto_CarFel_CkeckPoint_Web.Models;
-using Projeto_CarFel_CkeckPoint_Web.Repositorios;
+using CheckPoint.Interfaces;
+using CheckPoint.Models;
+using CheckPoint.Repositorios;
+using CheckPoint.Util;
 
 namespace Projeto_CarFel_CheckPoint.Controllers
 {
@@ -23,44 +20,32 @@ namespace Projeto_CarFel_CheckPoint.Controllers
             _mensagemRepositorio = new MensagemRepositorio();
         }
 
-        //Pagina Home
         [HttpGet]
         public IActionResult Home()
         {
-            // Pega o id do usuário
             ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
-
             return View();
         }
 
-        //Pagina Empresa
         [HttpGet]
         public IActionResult Empresa()
         {
-            // Pega o id do usuário
             ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
-
             return View();
         }
 
-        //Pagina Preçõs
         [HttpGet]
         public IActionResult Precos()
         {
-            // Pega o id do usuário
             ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
-
             return View();
         }
 
-        //Validação do Email
-        public bool ValidarEmail(string email)
+        public bool VerificarEmail(string email)
         {
-            // Valida o email
-            bool valE = _validacaoUtil.ValEmail(email);
+            bool emailValido = _validacaoUtil.ValidarEmail(email);
 
-            // Caso não seja valido
-            if (!valE)
+            if (!emailValido)
             {
                 TempData["MensengeValE"] = "Email deve conter @ e .";
                 return false;
@@ -69,14 +54,11 @@ namespace Projeto_CarFel_CheckPoint.Controllers
             return true;
         }
 
-        //Validação da Senha
-        public bool ValidarTexto(string texto)
+        public bool VerificarTexto(string texto)
         {
-            // Verifica o texto
-            bool valS = _validacaoUtil.valTexto(texto);
+            bool textoValido = _validacaoUtil.ValidarTexto(texto);
 
-            // Caso não seja valido
-            if (!valS)
+            if (!textoValido)
             {
                 TempData["MensengeValT"] = "Insira um texto para poder enviar a mensagem";
                 return false;
@@ -85,14 +67,11 @@ namespace Projeto_CarFel_CheckPoint.Controllers
             return true;
         }
 
-        //Validar Assunto
-        public bool ValidarAssunto(string Assunto)
+        public bool VerificarAssunto(string Assunto)
         {
-            // Verifica o assunto
-            bool valS = _validacaoUtil.valTexto(Assunto);
+            bool assuntoValido = _validacaoUtil.ValidarTexto(Assunto);
 
-            // Caso não seja valido
-            if (!valS)
+            if (!assuntoValido)
             {
                 TempData["MensengeValA"] = "Insira um assunto para poder enviar a mensagem";
                 return false;
@@ -101,124 +80,87 @@ namespace Projeto_CarFel_CheckPoint.Controllers
             return true;
         }
 
-        //Pagina Contato
         [HttpGet]
         public IActionResult Contato()
         {
-            // Caso esteja logado
             if (HttpContext.Session.GetString("UsuarioLogId") != null)
             {
-                // Recupera o id
                 int UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
 
-                // Caso seja o admin
                 if (UsuarioLogId == 1)
-                {
                     return RedirectToAction("ListarMensagem", "Pagina");                    
-                }
 
-                // Atribui os dados do usuário
-                ViewData["UsuarioLog"] = _usuarioRepositorio.BuscarPorUser(UsuarioLogId);
+                ViewData["UsuarioLog"] = _usuarioRepositorio.BuscarPorId(UsuarioLogId);
             }
 
-            // Recupera o id do usuário
             ViewBag.UserLog = HttpContext.Session.GetString("UsuarioLogId");
-
             return View();
         }
 
-
-        //Função de Cadastrar Mensagens
         [HttpPost]
         public IActionResult Contato(IFormCollection dados)
         {  
-            // Declara a variavel
             int UsuarioLogId = 0;
 
-            // Caso esteja logado
             if (HttpContext.Session.GetString("UsuarioLogId") != null)
             {
-                // Recupera e atribui
                 UsuarioLogId = int.Parse(HttpContext.Session.GetString("UsuarioLogId"));
                 ViewBag.UserLog = UsuarioLogId;
             }
             
-            //Validações
-            bool ValE = true;
+            bool emailValido = true;
 
-            // Valida o email
             if (HttpContext.Session.GetString("UsuarioLogId") == null)
-            {
-                ValE = ValidarEmail(dados["email"]);
-            }
+                emailValido = VerificarEmail(dados["email"]);
             
-            // Valida o texto e o assutno
-            bool ValA = ValidarAssunto(dados["assunto"]);
-            bool ValT = ValidarTexto(dados["texto"]);
+            bool assuntoValido = VerificarAssunto(dados["assunto"]);
+            bool textoValido = VerificarTexto(dados["texto"]);
 
-            // Caso tenha algum erro
-            if (!ValE || !ValA || !ValT)
+            if (!emailValido || !assuntoValido || !textoValido)
             {
                 TempData["FalhaCadMen"] = "Falha ao enviar a mensagem. Dados inválidos";
                 return View();
             }
 
-            // Cria a mensagem
             MensagemModel mensagem = new MensagemModel(dados["nome"], dados["email"], dados["assunto"], dados["texto"], "Pedente");
 
-            // Caso não tenha feito login
             if (HttpContext.Session.GetString("UsuarioLogId") != null)
             {
-                // Busca o usuário
-                UsuarioModel usuario = _usuarioRepositorio.BuscarPorUser(UsuarioLogId);
+                UsuarioModel usuario = _usuarioRepositorio.BuscarPorId(UsuarioLogId);
 
-                // Atribui os dados da mensagem
                 mensagem.Nome = usuario.Nome;
                 mensagem.Email = usuario.Email;
 
-                // Atribui no log
                 ViewData["UsuarioLog"] = usuario;
             }
             
             _mensagemRepositorio.Cadastrar(mensagem);
 
-            // Retorna mensagem para usuario que login foi efetuado com sucesso
             TempData["SucessoCadMen"] = "Mensagem enviada com sucesso";
-            
             return View();
         }
 
-        //Função de listas todas as Mensagens
         [HttpGet]
         public IActionResult ListarMensagem()
         {
-            // Lista todos os produtos
             ViewData["Mensagens"] = _mensagemRepositorio.Listar();
-
             return View();
         }
 
-        //Função Excluir Mensagens
         [HttpGet]
         public IActionResult Excluir(int id)
         {
-            //Procura pelo mensagem
-            MensagemModel mensagem = _mensagemRepositorio.BuscarPorMensagem(id);
+            MensagemModel mensagem = _mensagemRepositorio.BuscarPorId(id);
 
-            //Caso não encontrado
             if (mensagem == null)
             {
-                // Retorna erro
                 TempData["AvaliacaoSucesso"] = "Mensagem não encontrada";
                 return View();
             }
             
-            // Exclui a mensagem
             _mensagemRepositorio.Excluir(mensagem);
 
-            //Retorna mensagem para user e redireciona ele para a pagina de depoimentos
             TempData["AvaliacaoSucesso"] = "Mensagem Excluida da Lista";
-
             return RedirectToAction("ListarMensagem");
         }
     }

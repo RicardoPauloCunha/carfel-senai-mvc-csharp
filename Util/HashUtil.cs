@@ -2,7 +2,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Projeto_CarFel_CheckPoint_Web.Util
+namespace CheckPoint.Util
 {
     public class HashUtil
     {
@@ -31,9 +31,7 @@ namespace Projeto_CarFel_CheckPoint_Web.Util
         public bool VerificarSenha(string senhaDigitada, string senhaCadastrada)
         {
             if (string.IsNullOrEmpty(senhaCadastrada))
-            {
                 throw new NullReferenceException("Cadastrar uma senha");
-            }
 
             var encryptedPassword = _algoritimo.ComputeHash(Encoding.UTF8.GetBytes(senhaDigitada));
 

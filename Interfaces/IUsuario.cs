@@ -1,36 +1,13 @@
 using System.Collections.Generic;
-using Projeto_CarFel_CheckPoint_Web.Models;
+using CheckPoint.Models;
 
-namespace Projeto_CarFel_CheckPoint_Web.Interfaces
+namespace CheckPoint.Interfaces
 {
     public interface IUsuario
     {
-        /// <summary>
-        /// Cadastra um novo usuario
-        /// </summary>
-        /// <param name="usuario">UsuarioModel</param>
-        /// <returns>Retorna um usuario</returns>
         UsuarioModel Cadastrar(UsuarioModel usuario);
-
-        /// <summary>
-        /// Lista todos os usuarios cadastrados
-        /// </summary>
-        /// <returns>Retorno um lista de usuarios</returns>
-        List<UsuarioModel> Listar();
-
-        /// <summary>
-        /// Efetua o login do usuario caso os dados estejam corretos
-        /// </summary>
-        /// <param name="email">Email do usuario</param>
-        /// <param name="senha">Senha do usuario</param>
-        /// <returns>Retona o usuario correspondente a esses dados</returns>
         UsuarioModel Login(string email, string senha);
-
-        /// <summary>
-        /// Busca na lista de usuarios o usuario correspondente a esse id
-        /// </summary>
-        /// <param name="id">Id do usuario desejado</param>
-        /// <returns>Retorna um usuario model</returns>
-        UsuarioModel BuscarPorUser(int id);
+        UsuarioModel BuscarPorId(int id);
+        List<UsuarioModel> Listar();
     }
 }

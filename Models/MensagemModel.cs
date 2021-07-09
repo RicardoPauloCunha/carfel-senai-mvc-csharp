@@ -1,6 +1,6 @@
 using System;
 
-namespace Projeto_CarFel_CkeckPoint_Web.Models
+namespace CheckPoint.Models
 {
     [Serializable]
     public class MensagemModel
@@ -18,17 +18,6 @@ namespace Projeto_CarFel_CkeckPoint_Web.Models
 
         }
 
-        public MensagemModel(int id, string nome, string email, string assunto, string texto, DateTime dataCriacao, string situacao)
-        {
-            Id = id;
-            Nome = nome;
-            Email = email;
-            Assunto = assunto;
-            Texto = texto;
-            DataCriacao = dataCriacao;
-            Situacao = situacao;
-        }
-
         public MensagemModel(string nome, string email, string assunto, string texto, string situacao)
         {
             Nome = nome;
@@ -36,6 +25,7 @@ namespace Projeto_CarFel_CkeckPoint_Web.Models
             Assunto = assunto;
             Texto = texto;
             Situacao = situacao;
+            DataCriacao = DateTime.Now;
         }
     }
 }

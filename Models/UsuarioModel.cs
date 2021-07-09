@@ -1,6 +1,6 @@
 using System;
 
-namespace Projeto_CarFel_CheckPoint_Web.Models
+namespace CheckPoint.Models
 {
     [Serializable]
     public class UsuarioModel
